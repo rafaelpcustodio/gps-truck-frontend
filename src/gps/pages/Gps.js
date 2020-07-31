@@ -5,6 +5,7 @@ import { isNotEmpty, not } from '../../utils/functions'
 import SearchBar from '../components/SearchBar'
 import truckMarker from '../../_assets/img/icn-current-location.png'
 import pathMarker from '../../_assets/img/icn-path.png'
+import firstLocationMarker from '../../_assets/img/icn-first-location.png'
 
 const mapStyles = {
     width: '100%',
@@ -72,13 +73,21 @@ const Gps = props => {
                     ) 
                 }
                 {
-                    truckLocations && truckLocations.map((location, index) => (
-                        <Marker 
-                            icon={pathMarker}
-                            index={index}
-                            position={location}
-                        />
-                    ))
+                    truckLocations && truckLocations.map((location, index) => {
+                        if(index === truckLocations.length - 1) {
+                            return(<Marker 
+                                icon={firstLocationMarker}
+                                index={index}
+                                position={location}
+                            />)
+                        } else if(index !== 0) {
+                            return(<Marker 
+                                icon={pathMarker}
+                                index={index}
+                                position={location}
+                            />)  
+                        }
+                    })
                 }
             </Map>
         </>
