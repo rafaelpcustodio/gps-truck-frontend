@@ -4,6 +4,7 @@ import Dropdown from '../../components/SelectContainer'
 import { isNotEmpty, not } from '../../utils/functions'
 import SearchBar from '../components/SearchBar'
 import truckMarker from '../../_assets/img/icn-current-location.png'
+import pathMarker from '../../_assets/img/icn-path.png'
 
 const mapStyles = {
     width: '100%',
@@ -67,8 +68,17 @@ const Gps = props => {
                       <Marker 
                         icon={truckMarker}
                         position={truckLocations[0]}
-                    />
+                      />
                     ) 
+                }
+                {
+                    truckLocations && truckLocations.map((location, index) => (
+                        <Marker 
+                            icon={pathMarker}
+                            index={index}
+                            position={location}
+                        />
+                    ))
                 }
             </Map>
         </>

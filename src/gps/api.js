@@ -14,8 +14,8 @@ const getAllPoiTypes = () => {
 
 const getTruckLocations = (licensePlate, poiType) => {
     return [{"latitude": 39.444, "longitude": -122.176},
-            {"latitude": 58.444, "longitude": -122.176},
-            {"latitude": 39.444, "longitude": -122.176}]
+            {"latitude": 39.445, "longitude": -122.177},
+            {"latitude": 39.446, "longitude": -122.178}]
 }
 
 const getSuggestions = (selectedPoiType, selectedRadius, mostRecentTruckLocation) => {
