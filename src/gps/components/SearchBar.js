@@ -7,6 +7,10 @@ import Button from '../../components/Button'
 
 import {isEmpty} from '../../utils/functions'
 
+import hotelMark from '../../_assets/img/icn-hotel.png'
+import restaurantMark from '../../_assets/img/icn-restaurant.png'
+import gasStationMark from '../../_assets/img/icn-gas-station.png'
+
 
 const SearchBar = props => {
 

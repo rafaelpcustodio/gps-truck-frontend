@@ -28,14 +28,14 @@ const Gps = props => {
         requestSetRadiusSelectedAction,
         requestSetPoiTypeSelectedAction,
         requestGetSuggestionsAction,
-        requestRadiusAction
+        requestRadiusAction,
+        suggestionsList
     } = props
 
     useEffect(() => {
         requestPoiTypesAction()
         requestRadiusAction()
     }, [])
-
     return (
         <>
             <SearchBar
@@ -58,9 +58,8 @@ const Gps = props => {
             <Map
                 google={props.google}
                 disableDefaultUI={true}
-                zoom={8}
+                zoom={16}
                 style={mapStyles}
-                initialCenter={undefined}
                 center={truckLocations[0]}
             >
                 {
@@ -88,6 +87,15 @@ const Gps = props => {
                             />)  
                         }
                     })
+                }
+                {
+                    suggestionsList && suggestionsList.map((candidate, index) => 
+                        <Marker
+                            icon={candidate.getIcon()}
+                            index={index}
+                            position={{lat: candidate.geometry.location.lat, lng: candidate.geometry.location.lng}}
+                        />
+                    )
                 }
             </Map>
         </>

@@ -7,7 +7,7 @@ const store = Record({
     poiTypeSelected: {},
     radiusList: [],
     radiusSelected: {},
-    suggestions: []
+    suggestionsList: []
 })();
 
 export { store }

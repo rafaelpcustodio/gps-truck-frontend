@@ -32,7 +32,7 @@ const mapStateToProps = state => ({
     poiTypeSelected: getPoiTypeSelectedSelector(state),
     radiusList: getListRadiusSelector(state),
     radiusSelected: getRadiusSelectedSelector(state),
-    suggestions: getSuggestionsListSelector(state)
+    suggestionsList: getSuggestionsListSelector(state)
 })
 
 const mapDispatchToProps = {

@@ -12,7 +12,6 @@ const PoiType = props => {
             disabled= {disableDropDown}
             onSelect={ POITypeSelected => onSelect(POITypeSelected) }
             options={ options }
-            value={ selectedPOI }
         />
     )
 }

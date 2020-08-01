@@ -13,11 +13,11 @@ const getSelectedLicensePlate = state => state.get(REDUCER_NAME).get('licensePla
 
 const getTruckLocationsList = state => state.get(REDUCER_NAME).get('truckLocations');
 
-const getSuggestionsList = state => state.get(REDUCER_NAME).get('suggestions');
+const getSuggestionsList = state => state.get(REDUCER_NAME).get('suggestionsList');
 
 const getSuggestionsListSelector = createSelector(
     getSuggestionsList,
-    suggestions => suggestions
+    suggestionsList => suggestionsList
 );
 
 

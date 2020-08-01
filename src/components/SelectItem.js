@@ -18,7 +18,7 @@ const StyledSelectItem = styled.li`
     }
 `
 
-const SelectItem = ({ dataCy, onClick, option }) => (
+const SelectItem = ({ onClick, option }) => (
 
     <StyledSelectItem onClick={ () => onClick(option) }>
         { option ? `${option}` : 'failure' }

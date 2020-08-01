@@ -21,6 +21,7 @@ import {
 import { 
     getLicensePlateSelectedSelector,
     getPoiTypeSelectedSelector,
+    getListPoiTypeSelector,
     getRadiusSelectedSelector,
     getTruckLocationsListSelector
 } from './selectors'
@@ -60,10 +61,15 @@ function* getTruckLocationsRequested() {
 }
 function* getSuggestionsRequested() {
     try {
-        const selectedPoiType = yield select(getPoiTypeSelectedSelector)
+        let selectedPoiType = yield select(getPoiTypeSelectedSelector)
         const selectedRadius =  yield select(getRadiusSelectedSelector)
         const truckLocations = yield select(getTruckLocationsListSelector)
-        const suggestions = getSuggestions(selectedPoiType, selectedRadius, truckLocations[0])
+        const suggestions = yield call(getSuggestions, {
+            selectedPoiType, 
+            selectedRadius, 
+            truckLocations
+        })
+        console.log(suggestions)
         yield put(setSuggestionsAction(suggestions))
     } catch (error) {
         console.log(error)

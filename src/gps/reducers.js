@@ -9,7 +9,8 @@ import {
     setLicensePlateSelectedAction,
     setTruckLocationsAction,
     setRadiusSelectedAction,
-    setPoiTypeSelectedAction
+    setPoiTypeSelectedAction,
+    setSuggestionsAction
 } from './actions';
 
 const reducers = handleActions({
@@ -24,7 +25,8 @@ const reducers = handleActions({
     [setRadiusSelectedAction]: (state, { payload }) => state.set('radiusSelected', payload)
     ,
     [setPoiTypeSelectedAction]: (state, { payload }) => state.set('poiTypeSelected', payload),
-    [setTruckLocationsAction]: (state, { payload }) => state.set('truckLocations', payload)
+    [setTruckLocationsAction]: (state, { payload }) => state.set('truckLocations', payload),
+    [setSuggestionsAction]: (state, { payload }) => state.set('suggestionsList', payload)
 }, store);
 
 export { reducers }

@@ -1,15 +1,20 @@
 import http from '../_config/http'
 
-import { handleError, handleSuccess, responseWasOK } from '../utils/http'
+import Candidate from '../models/suggestions/Candidate'
+
+import { responseWasOK } from '../utils/http'
 
 import { isNotEmpty } from '../utils/functions'
 
 const getAllRadius = () => {
-    return ['134', '222', '45']
+    return ['1000', '2000', '4500']
 }
 
 const getAllPoiTypes = () => {
-    return ['View all', 'Gas Stations', 'Restaurants', 'Hotels']
+    return [{'description': 'View all', 'abbreviation': 'restaurant,hotel,gas-station'},
+            {'description': 'Gas Stations', 'abbreviation': 'gas-station'},
+            {'description': 'Restaurants', 'abbreviation': 'restaurant'},
+            {'description': 'Hotels', 'abbreviation': 'hotel'}]
 }
 
 const getTruckLocations = (licensePlate, poiType) => {
@@ -27,18 +32,22 @@ const getTruckLocations = (licensePlate, poiType) => {
             {"latitude": 41.40296, "longitude": 2.17392}]
 }
 
-const getSuggestions = (selectedPoiType, selectedRadius, mostRecentTruckLocation) => {
+const getSuggestions = ({ selectedPoiType, selectedRadius, truckLocations }) => {
     const KEY = 'AIzaSyDoEypy18XsLdHPyRO7t4BwmOGLDdTaDoA'
-    if(isNotEmpty(selectedPoiType) && isNotEmpty(selectedRadius) && isNotEmpty(mostRecentTruckLocation)) {
-        let API_URL = `json?input=${selectedPoiType}/&inputtype=textquery&fields=`
-        API_URL += `formatted_address,name,opening_hours,geometry,rating&locationbias=circle:${selectedRadius}@`
-        API_URL += `${mostRecentTruckLocation.lat},${mostRecentTruckLocation.lng}&key=AIzaSyDoEypy18XsLdHPyRO7t4BwmOGLDdTaDoA`
+    if(isNotEmpty(selectedPoiType) && isNotEmpty(selectedRadius) && isNotEmpty(truckLocations)) {
+        let API_URL = `json?query=${selectedPoiType}&radius=${selectedRadius}`
+        API_URL += `&location=${truckLocations[0].lat},${truckLocations[0].lng}&key=AIzaSyDoEypy18XsLdHPyRO7t4BwmOGLDdTaDoA`
         return http.get(API_URL)
             .then(({ data, status }) => {
+                let response = []
+                const { results } = data
                 if (responseWasOK(status)) {
-                    console.log(data)
+                    response = results
+                        .filter(result => result.business_status === 'OPERATIONAL')
+                        .filter(result => result.opening_hours ? result.opening_hours.open_now : true)
+                        .map(result => new Candidate(result))
                 }
-                return data
+                return response
             }).catch(error => error)
     }
 }
