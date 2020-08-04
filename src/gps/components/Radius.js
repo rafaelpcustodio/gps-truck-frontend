@@ -4,7 +4,7 @@ import Select from '../../components/Select'
 
 const Radius = props => {
 
-    const { disableDropDown, defaultConstant,  options, onSelect, selectedRadius } = props
+    const { disableDropDown, defaultConstant,  options, onSelect } = props
     
     return (
         <Select
@@ -12,7 +12,6 @@ const Radius = props => {
             defaultConstant = { defaultConstant }
             onSelect={ RadiusSelected => onSelect(RadiusSelected) }
             options={ options }
-            value={ selectedRadius }
         />
     )
 }

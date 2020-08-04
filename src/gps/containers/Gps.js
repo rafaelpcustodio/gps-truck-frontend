@@ -19,6 +19,7 @@ import {
     getLicensePlateSelectedSelector,
     getListPoiTypeSelector,
     getListRadiusSelector,
+    getMinimumDistanceSelector,
     getTruckLocationsListSelector,
     getRadiusSelectedSelector,
     getPoiTypeSelectedSelector,
@@ -27,6 +28,7 @@ import {
 
 const mapStateToProps = state => ({
     licensePlateSelected: getLicensePlateSelectedSelector(state),
+    minimumDistance: getMinimumDistanceSelector(state),
     truckLocations: getTruckLocationsListSelector(state),
     poiTypeList: getListPoiTypeSelector(state),
     poiTypeSelected: getPoiTypeSelectedSelector(state),

@@ -7,10 +7,6 @@ import Button from '../../components/Button'
 
 import {isEmpty} from '../../utils/functions'
 
-import hotelMark from '../../_assets/img/icn-hotel.png'
-import restaurantMark from '../../_assets/img/icn-restaurant.png'
-import gasStationMark from '../../_assets/img/icn-gas-station.png'
-
 
 const SearchBar = props => {
 
@@ -44,25 +40,23 @@ const SearchBar = props => {
     }, [truckLocations])
 
     const [ disableDropDown, updateDisableDropDown ] = useState(true)
-    
+
     return (
         <SearchBarContainer>
-            <LicensePlate requestSetLicensePlateSelectedAction={requestSetLicensePlateSelectedAction}/>
+            <LicensePlate 
+                requestSetLicensePlateSelectedAction={requestSetLicensePlateSelectedAction}
+            />
             <PoiType 
                 defaultConstant = {'Select POI type'}
                 disableDropDown = {disableDropDown}
                 options={poiTypeList}
                 onSelect={requestSetPoiTypeSelectedAction}
-                selectedPOI={poiTypeSelected}
-                requestPoiTypesAction={requestPoiTypesAction}
             />
             <Radius 
                 defaultConstant = {'Select radius'}
                 disableDropDown= {disableDropDown}
                 options={radiusList}
                 onSelect={requestSetRadiusSelectedAction}
-                selectedRadius={radiusSelected}
-                requestRadiusAction={requestRadiusAction}
             />
             <Button text={"Apply"} action={handleClick}/>
         </SearchBarContainer>

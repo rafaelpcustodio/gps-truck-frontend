@@ -25,7 +25,7 @@ const SelectList = ({ expanded, onSelect, options }) => (
 
     <StyledSelectList expanded={ expanded }>
         { options.map((option, index) =>
-            <SelectItem key={ index } onClick={ onSelect } option={ option.description ? option.description : option }/>)
+            <SelectItem key={ index } onClick={ onSelect } option={ option }/>)
         }
     </StyledSelectList>
 

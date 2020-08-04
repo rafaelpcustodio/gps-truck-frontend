@@ -25,7 +25,6 @@ const Select = props => {
     const {
         defaultConstant,
         disabled,
-        onReasonClear,
         onSelect,
         options
     } = props
@@ -40,7 +39,7 @@ const Select = props => {
         updateOptionSelected(option)
         onSelect(option)
     }
-
+    
     return (
         <StyledSelect disabled={disabled}>
             <SelectContainer
@@ -48,7 +47,6 @@ const Select = props => {
                 expanded={ expanded }
                 onClick={ handleDropdownClick }
                 hasCaret={ true }
-                onReasonClear={ onReasonClear }
                 optionSelected={ optionSelected }/>
             <SelectList
                 expanded={ expanded }

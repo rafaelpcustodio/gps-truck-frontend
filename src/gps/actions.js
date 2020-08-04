@@ -31,6 +31,8 @@ const setSuggestionsAction = createAction(actions.SET_SUGGESTIONS)
 const requestGetTruckLocationsAction = createAction(actions.REQUEST_GET_TRUCK_LOCATIONS)
 const setTruckLocationsAction = createAction(actions.SET_TRUCK_LOCATIONS)
 
+const setMinimumDistanceAction = createAction(actions.SET_MINIMUM_DISTANCE)
+
 export {
     getRadiusAction,
     getPoiTypesAction,
@@ -45,6 +47,7 @@ export {
     requestGetSuggestionsAction,
     requestSetPoiTypeSelectedAction,
     requestSetPoiTypesListAction,
+    setMinimumDistanceAction,
     setTruckLocationsAction,
     setLicensePlateSelectedAction,
     setPoiTypeSelectedAction,

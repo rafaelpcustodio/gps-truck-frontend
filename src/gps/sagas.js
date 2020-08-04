@@ -2,7 +2,7 @@ import { getAction } from '../utils/actions';
 import { actions } from './constants';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects'
 
-import { getAllRadius, getAllPoiTypes, getTruckLocations, getSuggestions } from './api';
+import { getAllRadius, getAllPoiTypes, getTruckLocations, getAllValidSuggestions, getMinimumDistanceByLocation } from './api';
 
 import Location from '../models/Location'
 
@@ -10,6 +10,7 @@ import {
     getRadiusAction,
     getPoiTypesAction,
     setTruckLocationsAction,
+    setMinimumDistanceAction,
     setLicensePlateSelectedAction,
     setPoiTypeSelectedAction,
     setPoiTypesListAction,
@@ -49,7 +50,7 @@ function* getRadiusListRequested() {
 function* getTruckLocationsRequested() {
     try {
         const licensePlate = yield select(getLicensePlateSelectedSelector)
-        const locations = getTruckLocations(licensePlate)
+        const locations = yield call(getTruckLocations, {licensePlate})
         const locationsEntity = locations.map(location => {
             const locationEntity = new Location(location)
             return locationEntity
@@ -64,13 +65,17 @@ function* getSuggestionsRequested() {
         let selectedPoiType = yield select(getPoiTypeSelectedSelector)
         const selectedRadius =  yield select(getRadiusSelectedSelector)
         const truckLocations = yield select(getTruckLocationsListSelector)
-        const suggestions = yield call(getSuggestions, {
+        const suggestions = yield call(getAllValidSuggestions, {
             selectedPoiType, 
             selectedRadius, 
             truckLocations
         })
-        console.log(suggestions)
+        const minimumDistance = yield call(getMinimumDistanceByLocation, {
+            locations: suggestions,
+            mostRecentLocation: truckLocations[0]
+        })
         yield put(setSuggestionsAction(suggestions))
+        yield put(setMinimumDistanceAction(minimumDistance.distance))
     } catch (error) {
         console.log(error)
     }
@@ -78,6 +83,10 @@ function* getSuggestionsRequested() {
 
 function* setPoiTypeListRequested({ payload }) {
     yield put(setPoiTypesListAction(payload))
+}
+
+function* setPoiTypeSelectedRequested({ payload }) {
+    yield put(setPoiTypeSelectedAction(payload))
 }
 
 function* setLicensePlateSelectedRequested({ payload }) {
@@ -90,10 +99,6 @@ function* setRadiusListRequested({ payload }) {
 
 function* setRadiusSelectedRequested({ payload }) {
     yield put(setRadiusSelectedAction(payload))
-}
-
-function* setPoiTypeSelectedRequested({ payload }) {
-    yield put(setPoiTypeSelectedAction(payload))
 }
 
 function* watchGetPoiTypeListRequest() {
@@ -124,9 +129,6 @@ function* watchRequestSetPoiType() {
 function* watchRequestSetLicensePlate() {
     yield takeLatest(getAction(actions.REQUEST_SET_LICENSE_PLATE_SELECTED), setLicensePlateSelectedRequested)
 }
-// function* watchRequestSetLocation() {
-//     yield takeLatest(getAction(actions.REQUEST_SET_LOCATION), setLocationRequested)
-// }
 
 function* watchRequestGetSuggestions() {
     yield takeLatest(getAction(actions.REQUEST_GET_SUGGESTIONS), getSuggestionsRequested)

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
-import Dropdown from '../../components/SelectContainer'
-import { isNotEmpty, not } from '../../utils/functions'
+import { Map, GoogleApiWrapper, Marker, Polyline, SymbolPath } from 'google-maps-react'
 import SearchBar from '../components/SearchBar'
 import truckMarker from '../../_assets/img/icn-current-location.png'
 import pathMarker from '../../_assets/img/icn-path.png'
 import firstLocationMarker from '../../_assets/img/icn-first-location.png'
+import MinimumDistance from '../components/MinimumDistance'
+import arrowUp from '../../_assets/img/icn-arrow-up.png'
 
 const mapStyles = {
     width: '100%',
@@ -13,48 +13,51 @@ const mapStyles = {
   };
 
 const Gps = props => {
-
     const {
+        minimumDistance,
         licensePlateSelected,
-        truckLocations,
         poiTypeList,
         poiTypeSelected,
         radiusSelected,
         radiusList,
         requestGetTruckLocationsAction,
+        requestGetSuggestionsAction,
+        requestPoiTypesAction,
+        requestRadiusAction,
         requestSetLicensePlateSelectedAction,
         requestSetLocationAction,
-        requestPoiTypesAction,
         requestSetRadiusSelectedAction,
         requestSetPoiTypeSelectedAction,
-        requestGetSuggestionsAction,
-        requestRadiusAction,
-        suggestionsList
+        suggestionsList,
+        truckLocations
     } = props
 
     useEffect(() => {
         requestPoiTypesAction()
         requestRadiusAction()
     }, [])
+    
     return (
         <>
             <SearchBar
-                licensePlateSelected={licensePlateSelected}
                 requestSetLicensePlateSelectedAction={requestSetLicensePlateSelectedAction}
                 requestPoiTypesAction={requestPoiTypesAction}
                 requestRadiusAction={requestRadiusAction}
                 requestGetTruckLocationsAction={requestGetTruckLocationsAction}
-                requestSetLocationAction={requestSetLocationAction}
                 requestSetRadiusSelectedAction={requestSetRadiusSelectedAction}
                 requestSetPoiTypeSelectedAction={requestSetPoiTypeSelectedAction}
                 requestGetSuggestionsAction={requestGetSuggestionsAction}
-                requestGetTruckLocationsActions={requestGetTruckLocationsAction}
                 poiTypeList={poiTypeList}
                 poiTypeSelected={poiTypeSelected}
                 radiusSelected={radiusSelected}
                 radiusList={radiusList}
                 truckLocations={truckLocations}
             />
+            {
+                minimumDistance && (
+                    <MinimumDistance distance={minimumDistance}/> 
+                )
+            }
             <Map
                 google={props.google}
                 disableDefaultUI={true}
@@ -65,11 +68,22 @@ const Gps = props => {
                 {
                     truckLocations[0] &&
                     ( 
-                      <Marker 
-                        icon={truckMarker}
-                        position={truckLocations[0]}
-                      />
+                        <Marker 
+                            icon={truckMarker}
+                            position={truckLocations[0]}
+                        />
                     ) 
+                }
+                {
+                    minimumDistance && (
+                        <Polyline 
+                            geodesic={true}
+                            strokeColor={'#32B3C3'}
+                            strokeOpacity={1.0}
+                            strokeWeight={2}
+                            path={[{lat:41.40285, lng:2.17403},{lat:41.41285, lng:2.17403}]}
+                        /> 
+                    )
                 }
                 {
                     truckLocations && truckLocations.map((location, index) => {
@@ -89,11 +103,11 @@ const Gps = props => {
                     })
                 }
                 {
-                    suggestionsList && suggestionsList.map((candidate, index) => 
+                    suggestionsList && suggestionsList.map((suggestion, index) => 
                         <Marker
-                            icon={candidate.getIcon()}
+                            icon={suggestion.getIcon()}
                             index={index}
-                            position={{lat: candidate.geometry.location.lat, lng: candidate.geometry.location.lng}}
+                            position={{lat: suggestion.geometry.location.lat, lng: suggestion.geometry.location.lng}}
                         />
                     )
                 }

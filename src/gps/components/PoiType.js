@@ -4,7 +4,7 @@ import Select from '../../components/Select'
 
 
 const PoiType = props => {
-    const { disableDropDown, defaultConstant, options, onSelect, selectedPOI } = props
+    const { disableDropDown, defaultConstant, options, onSelect } = props
     
     return (
         <Select

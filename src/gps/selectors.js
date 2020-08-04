@@ -15,6 +15,13 @@ const getTruckLocationsList = state => state.get(REDUCER_NAME).get('truckLocatio
 
 const getSuggestionsList = state => state.get(REDUCER_NAME).get('suggestionsList');
 
+const getMinimumDistance = state => state.get(REDUCER_NAME).get('minimumDistance');
+
+const getMinimumDistanceSelector = createSelector(
+    getMinimumDistance,
+    minimumDistance => minimumDistance
+);
+
 const getSuggestionsListSelector = createSelector(
     getSuggestionsList,
     suggestionsList => suggestionsList
@@ -55,6 +62,7 @@ export {
     getLicensePlateSelectedSelector,
     getListPoiTypeSelector,
     getListRadiusSelector,
+    getMinimumDistanceSelector,
     getTruckLocationsListSelector,
     getRadiusSelectedSelector,
     getPoiTypeSelectedSelector,

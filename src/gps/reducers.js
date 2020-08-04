@@ -10,7 +10,8 @@ import {
     setTruckLocationsAction,
     setRadiusSelectedAction,
     setPoiTypeSelectedAction,
-    setSuggestionsAction
+    setSuggestionsAction,
+    setMinimumDistanceAction
 } from './actions';
 
 const reducers = handleActions({
@@ -22,6 +23,7 @@ const reducers = handleActions({
     }),
     [setLicensePlateSelectedAction]: (state, { payload }) => state.set('licensePlateSelected', payload)
     ,
+    [setMinimumDistanceAction]: (state, { payload }) => state.set('minimumDistance', payload),
     [setRadiusSelectedAction]: (state, { payload }) => state.set('radiusSelected', payload)
     ,
     [setPoiTypeSelectedAction]: (state, { payload }) => state.set('poiTypeSelected', payload),
