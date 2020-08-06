@@ -1,14 +1,14 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { Route, Switch } from 'react-router';
-import { ConnectedRouter } from 'connected-react-router/immutable';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Route, Switch } from 'react-router'
+import { ConnectedRouter } from 'connected-react-router/immutable'
 
-import { combineRoutes } from '../utils/routes';
+import { combineRoutes } from '../utils/routes'
 
-import { routes as bookingRoutes } from '../gps/routes';
+import { routes as bookingRoutes } from '../gps/routes'
 
-import { history } from './history';
-import { store } from './store';
+import { history } from './history'
+import { store } from './store'
 
 const systemRoutes = combineRoutes(
     bookingRoutes

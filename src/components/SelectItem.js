@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 
-import { borders } from '../helpers/border'
+import { borders } from '../helpers/borders'
 import { colors } from '../helpers/colors'
 
 const StyledSelectItem = styled.li`
@@ -26,6 +26,11 @@ const SelectItem = ({ onClick, option }) => (
     </StyledSelectItem>
 
 )
+
+SelectItem.defaultProps = {
+    onClick: null,
+    option: ''
+}
 
 SelectItem.propTypes = {
     onClick: PropTypes.func.isRequired,

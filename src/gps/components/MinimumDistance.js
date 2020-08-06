@@ -6,7 +6,7 @@ import StyledMinimumDisance from './StyledMinimumDistance'
 const MinimumDistance = props => {
 
     const { distance } = props
-    console.log(Math.round(distance))
+
     return (
         <StyledMinimumDisance>
             { `Closest opened Service: ${Math.round(distance)}m` }
@@ -14,8 +14,12 @@ const MinimumDistance = props => {
     )
 }
 
+MinimumDistance.defaultProps = {
+    distance: 0
+}
+
 MinimumDistance.propTypes = {
-    distance: PropTypes.string
+    distance: PropTypes.number.isRequired,
 }
 
 export default MinimumDistance

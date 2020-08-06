@@ -2,4 +2,12 @@ const CODES = {
     OK: 200
 }
 
-export { CODES }
+const STATUS = {
+    OK: 'OK'
+}
+
+const SUGGESTION = {
+    OPERATIONAL: 'OPERATIONAL'
+}
+
+export { CODES, SUGGESTION, STATUS }

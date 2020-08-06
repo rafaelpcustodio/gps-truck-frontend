@@ -1,20 +1,19 @@
-import { times } from '../constants/times';
+import { times } from '../constants/times'
 
-import axios from 'axios';
+import axios from 'axios'
 
-const API_URL = 'https://maps.googleapis.com/maps/api/place/'; // temporary
+import { config } from './config'
+
+const DEFAULT_PATH = config.api.baseURL || 'http://localhost:8080'
 
 const http = axios.create({
-    baseURL: API_URL,
+    baseURL: DEFAULT_PATH,
     config: {
         timeout: times.THIRDY
     },
     headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+        'Content-Type': 'application/json'
     },
     timeout: times.THIRDY
 })

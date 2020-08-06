@@ -16,7 +16,7 @@ const Dropdown = props => {
     } = props
 
     const iconColor = disabled ? colors.disabled : colors.text
-
+    console.log(expanded)
     return (
         <StyledDropdown
             className={ expanded ? 'is-expanded' : null }

@@ -6,8 +6,8 @@ import SelectPoiType from '../../components/SelectPoiType'
 const PoiType = props => {
 
     const { 
+        defaultConstant,
         disableDropDown, 
-        defaultConstant, 
         options, 
         onSelect,
         selected
@@ -26,15 +26,16 @@ const PoiType = props => {
 
 PoiType.defaultProps = {
     defaultConstant: '',
+    disableDropDown: true,
     onSelect: null,
     options: []
 }
 
 PoiType.propTypes = {
     defaultConstant: PropTypes.string.isRequired,
+    disableDropDown: PropTypes.bool.isRequired,
     onSelect: PropTypes.func.isRequired,
-    options: PropTypes.arrayOf(PropTypes.string).isRequired,
-    selectedPOI: PropTypes.string
+    options: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
 export default PoiType

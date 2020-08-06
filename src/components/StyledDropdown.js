@@ -17,7 +17,6 @@ const StyledDropdown = styled.button`
     &:hover {
         cursor: pointer;
     }
-
     &:focus {
         outline: none;
     }

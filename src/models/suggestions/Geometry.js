@@ -1,5 +1,3 @@
-import CandidateLocation from './CandidateLocation'
-
 class Geometry {
 
     constructor({ location }) {

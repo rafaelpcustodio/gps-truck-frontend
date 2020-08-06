@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -17,7 +18,7 @@ const SelectText = styled.span`
 `
 
 const SelectRadiusContainer = ( { disabled, expanded, onClick, hasCaret, optionSelected } ) => {
-    console.log(optionSelected)
+
     return (
         <StyledSelectContainer>
             <SelectText disabled={disabled} onClick={ onClick }>{ optionSelected.length > 0 ?
@@ -33,6 +34,22 @@ const SelectRadiusContainer = ( { disabled, expanded, onClick, hasCaret, optionS
             />
         </StyledSelectContainer>
     )
+}
+
+SelectRadiusContainer.defaultProps = {
+    disabled: false,
+    expanded: false,
+    hasCaret: true,
+    onClick: null,
+    optionSelected: {}
+}
+
+SelectRadiusContainer.propTypes = {
+    disabled: PropTypes.bool.isRequired,
+    expanded: PropTypes.bool.isRequired,
+    hasCaret: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
+    optionSelected: PropTypes.string.isRequired
 }
 
 export default SelectRadiusContainer

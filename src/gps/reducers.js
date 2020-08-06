@@ -8,7 +8,7 @@ import {
     resetSuggestionsAction,
     setLicensePlateSelectedAction,
     resetMinimumDistanceAction,
-    setTruckLocationsAction,
+    setLocationsAction,
     setRadiusSelectedAction,
     setPoiTypeSelectedAction,
     setPoiTypesListAction,
@@ -21,7 +21,7 @@ const reducers = handleActions({
     [getPoiTypesAction]: (state, { payload }) => state.merge({
         poiTypeList: payload
     }),
-    [resetLocationsAction]:  state => state.merge({ truckLocations: [] }),
+    [resetLocationsAction]:  state => state.merge({ locationsList: [] }),
     [resetMinimumDistanceAction]:  state => state.merge({ minimumDistance: [] }),
     [resetSuggestionsAction]:  state => state.merge({ suggestionsList: [] }),
     [setLicensePlateSelectedAction]: (state, { payload }) => state.set('licensePlateSelected', payload),
@@ -31,7 +31,7 @@ const reducers = handleActions({
     [setPoiTypeSelectedAction]: (state, { payload }) => state.set('poiTypeSelected', payload),
     [setRadiusSelectedAction]: (state, { payload }) => state.set('radiusSelected', payload),
     [setSuggestionsAction]: (state, { payload }) => state.set('suggestionsList', payload),
-    [setTruckLocationsAction]: (state, { payload }) => state.set('truckLocations', payload)
+    [setLocationsAction]: (state, { payload }) => state.set('locationsList', payload)
 }, store);
 
 export { reducers }

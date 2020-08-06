@@ -4,11 +4,13 @@ import React from 'react'
 import SelectItem from './SelectItem'
 import StyledSelectList from './StyledSelectList'
 
+import { isNotEmpty } from '../utils/functions'
+
 const SelectList = ({ expanded, onSelect, options }) => {
     
     return(
         <StyledSelectList expanded={ expanded }>
-            { options && options.map((option, index) =>
+            { isNotEmpty(options) && options.map((option, index) =>
                 <SelectItem 
                     key={ index } 
                     onClick={ onSelect } 

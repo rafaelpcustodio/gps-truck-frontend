@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { colors } from '../helpers/colors'
@@ -11,9 +10,4 @@ const SelectText = styled.span`
     width: 100%;
 `
 
-SelectText.propTypes = {
-    children: PropTypes.string.isRequired
-}
-
-export { SelectText }
 export default SelectText

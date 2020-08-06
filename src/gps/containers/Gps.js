@@ -4,16 +4,15 @@ import Gps from '../pages/Gps';
 
 
 import {
-    requestGetLocationAction,
-    requestGetTruckLocationsAction,
+    requestGetLocationsAction,
+    requestGetSuggestionsAction,
     requestPoiTypesAction,
-    requestSetLicensePlateSelectedAction,
     requestResetLocationsAction,
     requestResetMinimumDistanceAction,
     requestResetSuggestionsAction,
+    requestSetLicensePlateSelectedAction,
     requestSetRadiusSelectedAction,
     requestSetNoLocationsAction,
-    requestGetSuggestionsAction,
     requestSetPoiTypeSelectedAction
 } from '../actions'
 
@@ -23,7 +22,7 @@ import {
     getListRadiusSelector,
     getMinimumDistanceSelector,
     getNoLocationsSelector,
-    getTruckLocationsListSelector,
+    getLocationsListSelector,
     getRadiusSelectedSelector,
     getPoiTypeSelectedSelector,
     getSuggestionsListSelector
@@ -38,12 +37,11 @@ const mapStateToProps = state => ({
     radiusList: getListRadiusSelector(state),
     radiusSelected: getRadiusSelectedSelector(state),
     suggestionsList: getSuggestionsListSelector(state),
-    truckLocations: getTruckLocationsListSelector(state),
+    locationsList: getLocationsListSelector(state),
 })
 
 const mapDispatchToProps = {
-    requestGetLocationAction,
-    requestGetTruckLocationsAction,
+    requestGetLocationsAction,
     requestPoiTypesAction,
     requestSetNoLocationsAction,
     requestSetLicensePlateSelectedAction,

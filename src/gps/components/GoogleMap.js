@@ -13,7 +13,7 @@ const GoogleMap = props => {
 
     const {
         minimumDistance,
-        truckLocations,
+        locationsList,
         suggestionsList
     } = props
 
@@ -21,52 +21,57 @@ const GoogleMap = props => {
         width: '100%',
         height: '100%',
     };
+    
+    const DEFAULT_CENTER = {
+        lat: 41.40298,
+        lng: 2.17398
+    }
 
     const arrow = {
         path: window.google.maps.SymbolPath.FORWARD_CLOSED_ARROW
     }
-    
+
     return (
         <Map
             google={props.google}
             disableDefaultUI={true}
             zoom={16}
             style={mapStyles}
-            center={truckLocations[0]}
+            initialCenter={DEFAULT_CENTER}
             >
                 {
-                    truckLocations[0] &&
+                    locationsList[0] &&
                     ( 
                         <Marker 
                             icon={truckMarker}
-                            position={truckLocations[0]}
+                            position={locationsList[0]}
                         />
                     ) 
                 }
                 {
-                    isNotEmpty(minimumDistance) && isNotEmpty(truckLocations[0]) && (
+                    isNotEmpty(minimumDistance) && isNotEmpty(locationsList[0]) && (
                         <Polyline 
                             geodesic={true}
                             strokeColor={colors.lightGreen}
                             strokeOpacity={1.0}
                             icons={[{icon: arrow, offset: '100%'}]}
                             strokeWeight={2}
-                            path={[truckLocations[0].toGoogleMaps, minimumDistance.toGoogleMaps]}
+                            path={[locationsList[0].toGoogleMaps, minimumDistance.toGoogleMaps]}
                         /> 
                     )
                 }
                 {
-                    truckLocations && truckLocations.map((location, index) => {
-                        if(index === truckLocations.length - 1) {
+                    locationsList && locationsList.map((location, index) => {
+                        if(index === locationsList.length - 1) {
                             return(<Marker 
                                 icon={firstLocationMarker}
-                                index={index}
+                                key={index}
                                 position={location}
                             />)
                         } else if(index !== 0) {
                             return(<Marker 
                                 icon={pathMarker}
-                                index={index}
+                                key={index}
                                 position={location}
                             />)  
                         }
@@ -76,7 +81,7 @@ const GoogleMap = props => {
                     suggestionsList && suggestionsList.map((suggestion, index) => 
                         <Marker
                             icon={suggestion.getIcon()}
-                            index={index}
+                            key={index}
                             position={suggestion.toGoogleMaps}
                         />
                     )
@@ -85,12 +90,18 @@ const GoogleMap = props => {
     );
 }
 
+GoogleMap.defaultProps = {
+    minimumDistance: '',
+    suggestionsList: [],
+    locationsList: []
+}
+
 GoogleMap.protoTypes = {
     minimumDistance: PropTypes.string,
     suggestionsList: PropTypes.arrayOf(PropTypes.object),
-    truckLocations: PropTypes.arrayOf(PropTypes.object)
+    locationsList: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyDoEypy18XsLdHPyRO7t4BwmOGLDdTaDoA'
+    apiKey: process.env.REACT_APP_GOOGLE_API_KEY
   })(GoogleMap);

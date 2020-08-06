@@ -1,14 +1,14 @@
-import { routerMiddleware } from 'connected-react-router/immutable';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import createSagaMiddleware from 'redux-saga';
-import { applyMiddleware, compose, createStore } from 'redux';
+import { routerMiddleware } from 'connected-react-router/immutable'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import createSagaMiddleware from 'redux-saga'
+import { applyMiddleware, compose, createStore } from 'redux'
 
-import { sagas } from './sagas';
+import { sagas } from './sagas'
 
-import { history } from './history';
-import { reducers } from './reducers';
+import { history } from './history'
+import { reducers } from './reducers'
 
-import { Map } from 'immutable';
+import { Map } from 'immutable'
 
 
 const sagaMiddleware = createSagaMiddleware()

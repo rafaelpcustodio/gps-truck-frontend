@@ -17,14 +17,13 @@ import {
     resetLocationsAction,
     resetMinimumDistanceAction,
     resetSuggestionsAction,
-    setTruckLocationsAction,
+    setLocationsAction,
     setMinimumDistanceAction,
     setNoLocationsAction,
     setLicensePlateSelectedAction,
     setPoiTypeSelectedAction,
     setPoiTypesListAction,
     setRadiusSelectedAction,
-    setRadiusListAction,
     setSuggestionsAction
 } from './actions'
 
@@ -32,7 +31,7 @@ import {
     getLicensePlateSelectedSelector,
     getPoiTypeSelectedSelector,
     getRadiusSelectedSelector,
-    getTruckLocationsListSelector
+    getLocationsListSelector
 } from './selectors'
 
 const DEFAULT_MAP = document.createElement('div')
@@ -41,19 +40,16 @@ const DEFAULT_MAP = document.createElement('div')
 function* getPoiTypeListRequested() {
     try {
         const poiTypeList = yield call(getAllPoiTypes)
-        yield put(setPoiTypesListAction(poiTypeList))
+        yield put(setPoiTypesListAction(poiTypeList.map(type => type.name)))
     } catch (error) {
-        console.log('error')
+        console.log(error)
     }
 }
 
 function* getLocationsRequested() {
     try {
-        console.log('aqui')
         const licensePlate = yield select(getLicensePlateSelectedSelector)
-        console.log(licensePlate)
         const locations = yield call(getLocations, licensePlate)
-        console.log(locations)
         if(locations.length === 0) {
             yield put(setNoLocationsAction(true))
         } else {
@@ -61,17 +57,17 @@ function* getLocationsRequested() {
                 const locationEntity = new Location(location)
                 return locationEntity
             })
-            yield put(setTruckLocationsAction(locationsEntity))
+            yield put(setLocationsAction(locationsEntity))
         }
     } catch (error) {
-        console.log(error)
+        yield put(setNoLocationsAction(true))
     }
 }
 function* setSuggestionsRequested(map) {
     try{
         const poyTypeSelected = yield select(getPoiTypeSelectedSelector)
         const radiusSelected = yield select(getRadiusSelectedSelector)
-        const locations = yield select(getTruckLocationsListSelector)
+        const locations = yield select(getLocationsListSelector)
         const mostRecentLocation = locations[0]
         const location = new window.google.maps.LatLng(
             mostRecentLocation.lat,
@@ -95,13 +91,18 @@ function* setSuggestionsRequested(map) {
         yield _sleep()
         yield put(setMinimumDistanceAction(minimumDistance))
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
     }
+}
+
+function* setNoLocations() {
+    yield put(setNoLocationsAction(false))
 }
 
 function* _sleep() {
     yield delay(500)
 }
+
 function* setPoiTypeListRequested({ payload }) {
     yield put(setPoiTypesListAction(payload))
 }
@@ -127,20 +128,12 @@ function* setLicensePlateSelectedRequested({ payload }) {
     yield put(setLicensePlateSelectedAction(payload))
 }
 
-function* setRadiusListRequested({ payload }) {
-    yield put(setRadiusListAction(payload))
-}
-
 function* setRadiusSelectedRequested({ payload }) {
     yield put(setRadiusSelectedAction(payload))
 }
 
 function* watchGetPoiTypeListRequest() {
     yield takeLatest(getAction(actions.REQUEST_GET_POI_TYPES_LIST), getPoiTypeListRequested)
-}
-
-function* watchRequestSetRadiusList() {
-    yield takeLatest(getAction(actions.REQUEST_SET_RADIUS_LIST), setRadiusListRequested)
 }
 
 function* watchRequestSetPoiTypeList() {
@@ -163,7 +156,7 @@ function* watchRequestGetSuggestions() {
     yield takeLatest(getAction(actions.REQUEST_SET_SUGGESTIONS), setSuggestionsRequested)
 }
 
-function* watchRequestGetTruckLocations() {
+function* watchRequestGetLocations() {
     yield takeLatest(getAction(actions.REQUEST_GET_LOCATIONS), getLocationsRequested)
 }
 
@@ -179,17 +172,22 @@ function* watchRequestResetMinimumDistance() {
     yield takeLatest(getAction(actions.REQUEST_RESET_SUGGESTIONS), resetMinimumDistanceRequested)
 }
 
+
+function* watchRequestSetNoLocations() {
+    yield takeLatest(getAction(actions.REQUEST_SET_NO_LOCATIONS), setNoLocations)
+}
+
 function* sagas() {
     yield all([
         watchGetPoiTypeListRequest(),
         watchRequestSetLicensePlate(),
-        watchRequestSetRadiusList(),
-        watchRequestGetTruckLocations(),
+        watchRequestGetLocations(),
         watchRequestGetSuggestions(),
         watchRequestResetLocations(),
         watchRequestResetMinimumDistance(),
         watchRequestResetSuggestions() ,
         watchRequestSetRadius(),
+        watchRequestSetNoLocations(),
         watchRequestSetPoiType(),
         watchRequestSetPoiTypeList()
     ])

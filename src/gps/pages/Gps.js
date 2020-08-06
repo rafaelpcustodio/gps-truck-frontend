@@ -5,38 +5,49 @@ import GoogleMap from '../components/GoogleMap'
 
 import  MinimumDistance from '../components/MinimumDistance'
 
+import InformBox from '../../components/InformBox'
+
 import { isNotEmpty } from '../../utils/functions'
 
 const Gps = props => {
     
     const {
         minimumDistance,
+        noLocations,
         poiTypeList,
         poiTypeSelected,
         radiusSelected,
-        requestGetTruckLocationsAction,
+        requestGetLocationsAction,
         requestGetSuggestionsAction,
         requestPoiTypesAction,
         requestResetLocationsAction,
         requestResetMinimumDistanceAction,
         requestResetSuggestionsAction,
         requestSetLicensePlateSelectedAction,
+        requestSetNoLocationsAction,
         requestSetRadiusSelectedAction,
         requestSetPoiTypeSelectedAction,
         suggestionsList,
-        truckLocations
+        locationsList
     } = props
 
     useEffect(() => {
         requestPoiTypesAction()
-    }, [])
-    console.log(minimumDistance.distance)
+    }, [requestPoiTypesAction])
+
     return (
         <>
+            {(
+            noLocations && 
+                <InformBox 
+                    requestSetNoLocationsAction={requestSetNoLocationsAction}
+                    noLocations={noLocations} 
+                />
+            )}
             <SearchBar
                 requestSetLicensePlateSelectedAction={requestSetLicensePlateSelectedAction}
                 requestPoiTypesAction={requestPoiTypesAction}
-                requestGetTruckLocationsAction={requestGetTruckLocationsAction}
+                requestGetLocationsAction={requestGetLocationsAction}
                 requestResetLocationsAction={requestResetLocationsAction}
                 requestResetMinimumDistanceAction={requestResetMinimumDistanceAction}
                 requestResetSuggestionsAction={requestResetSuggestionsAction}
@@ -46,18 +57,16 @@ const Gps = props => {
                 poiTypeList={poiTypeList}
                 poiTypeSelected={poiTypeSelected}
                 radiusSelected={radiusSelected}
-                truckLocations={truckLocations}
+                locationsList={locationsList}
             />
-            {
-                (
-                    isNotEmpty(minimumDistance) && 
-                        <MinimumDistance distance={minimumDistance.distance}/>
-                )
-            }
+            {(
+            isNotEmpty(minimumDistance) && 
+                <MinimumDistance distance={minimumDistance.distance}/>
+            )}
             <GoogleMap
                 requestGetSuggestionsAction={requestGetSuggestionsAction}
                 minimumDistance={minimumDistance}s
-                truckLocations={truckLocations}
+                locationsList={locationsList}
                 suggestionsList={suggestionsList}
             />
         </>

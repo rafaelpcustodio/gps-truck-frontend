@@ -9,7 +9,7 @@ const store = Record({
     radiusList: [],
     radiusSelected: {},
     suggestionsList: [],
-    truckLocations: []
+    locationsList: []
 })();
 
 export { store }

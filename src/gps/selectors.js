@@ -15,7 +15,7 @@ const getSelectedLicensePlate = state => state.get(REDUCER_NAME).get('licensePla
 
 const getSuggestionsList = state => state.get(REDUCER_NAME).get('suggestionsList')
 
-const getTruckLocationsList = state => state.get(REDUCER_NAME).get('truckLocations')
+const getLocationsList = state => state.get(REDUCER_NAME).get('locationsList')
 
 const getNoLocations = state => state.get(REDUCER_NAME).get('noLocations')
 
@@ -60,9 +60,9 @@ const getSuggestionsListSelector = createSelector(
 );
 
 
-const getTruckLocationsListSelector = createSelector(
-    getTruckLocationsList,
-    truckLocations => truckLocations
+const getLocationsListSelector = createSelector(
+    getLocationsList,
+    locations => locations
 );
 
 export {
@@ -74,5 +74,5 @@ export {
     getPoiTypeSelectedSelector,
     getRadiusSelectedSelector,
     getSuggestionsListSelector,
-    getTruckLocationsListSelector
+    getLocationsListSelector
 }

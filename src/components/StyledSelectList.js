@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../helpers/colors'
-import { borders } from '../helpers/border'
+import { borders } from '../helpers/borders'
 
 const StyledSelectList = styled.div`
     background: ${colors.default};

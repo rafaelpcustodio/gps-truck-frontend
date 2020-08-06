@@ -26,13 +26,13 @@ const SearchBar = props => {
         requestSetPoiTypeSelectedAction,
         requestSetLicensePlateSelectedAction,
         requestGetSuggestionsAction,
-        requestGetTruckLocationsAction,
-        truckLocations
+        requestGetLocationsAction,
+        locationsList
     } = props
 
     const handleClick = () => {
-        if(isEmpty(truckLocations)) {
-            requestGetTruckLocationsAction()
+        if(isEmpty(locationsList)) {
+            requestGetLocationsAction()
             requestPoiTypesAction()
         } else {
             requestGetSuggestionsAction()
@@ -40,10 +40,10 @@ const SearchBar = props => {
     }
     
     useEffect(() => {
-        if(truckLocations.length > 0) {
+        if(locationsList.length > 0) {
             updateDisableDropDown(false)
         }
-    }, [truckLocations])
+    }, [locationsList])
 
     const handleText = changedLicensePlate => {
         requestSetRadiusSelectedAction(defaultRadiusMessage)
@@ -57,7 +57,7 @@ const SearchBar = props => {
     const [ disableDropDown, updateDisableDropDown ] = useState(true)
 
     const [ radiusList ] = useState(radiusDefaultList)
-
+    
     return (
         <SearchBarContainer>
             <LicensePlate 
@@ -68,14 +68,14 @@ const SearchBar = props => {
                 defaultConstant = {defaultPoiTypeMessage}
                 selected={poiTypeSelected}
                 disableDropDown = {disableDropDown}
-                options={poiTypeList.map(poiType => poiType.name)}
+                options={poiTypeList}
                 onSelect={requestSetPoiTypeSelectedAction}
             />
             <Radius 
                 defaultConstant = {defaultRadiusMessage}
                 selected={radiusSelected}
                 disableDropDown= {disableDropDown}
-                options={radiusList.map(radius => radius)}
+                options={radiusList}
                 onSelect={requestSetRadiusSelectedAction}
             />
             <Button text={"Apply"} action={handleClick}/>
@@ -87,26 +87,27 @@ SearchBar.defaultProps = {
     expanded: false,
     onSelect: null,
     options: [],
+    poiTypeList: [],
     radiusList: [],
     requestSetLicensePlateSelectedAction: null,
     requestSetPoiTypeSelectedAction: null,
     requestSetRadiusSelectedAction: null,
     requestGetSuggestionsAction: null,
-    requestGetTruckLocationsAction: null,
+    requestGetLocationsAction: null,
 }
 
 SearchBar.protoTypes = {
     expanded: PropTypes.bool.isRequired,
     onSelect: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(PropTypes.string).isRequired,
-    poiTypeList: PropTypes.arrayOf(PropTypes.string),
+    poiTypeList: PropTypes.arrayOf(PropTypes.string).isRequired,
     radiusList: PropTypes.arrayOf(PropTypes.object),
     requestSetLicensePlateSelectedAction: PropTypes.func.isRequired,
     requestSetPoiTypeSelectedAction: PropTypes.func.isRequired,
     requestSetRadiusSelectedAction: PropTypes.func.isRequired,
     requestGetSuggestionsAction: PropTypes.func.isRequired,
-    requestGetTruckLocationsAction: PropTypes.func.isRequired,
-    truckLocations: PropTypes.arrayOf(PropTypes.object)
+    requestGetLocationsAction: PropTypes.func.isRequired,
+    locationsList: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default SearchBar

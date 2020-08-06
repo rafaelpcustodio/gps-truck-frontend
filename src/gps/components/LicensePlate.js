@@ -43,7 +43,6 @@ const LicensePlate = props => {
         requestSetLicensePlateSelectedAction(text)
     }, [text])
 
-    console.log(invalidLicensePlate)
     return (
         <StyledLicensePlateText
             invalidLicensePlate={invalidLicensePlate}
