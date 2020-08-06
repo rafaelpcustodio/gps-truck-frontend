@@ -16,8 +16,8 @@ const SelectText = styled.span`
     width: 100%;
 `
 
-const SelectContainer = ( { disabled, expanded, onClick, hasCaret, optionSelected } ) => {
-
+const SelectRadiusContainer = ( { disabled, expanded, onClick, hasCaret, optionSelected } ) => {
+    console.log(optionSelected)
     return (
         <StyledSelectContainer>
             <SelectText disabled={disabled} onClick={ onClick }>{ optionSelected.length > 0 ?
@@ -35,4 +35,4 @@ const SelectContainer = ( { disabled, expanded, onClick, hasCaret, optionSelecte
     )
 }
 
-export default SelectContainer
+export default SelectRadiusContainer

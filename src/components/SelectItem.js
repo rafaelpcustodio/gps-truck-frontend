@@ -14,6 +14,7 @@ const StyledSelectItem = styled.li`
     white-space: nowrap;
     &:hover {
         background: ${colors.fourth};
+        color: ${colors.lightGreen};
         cursor: pointer;
     }
 `
@@ -21,7 +22,7 @@ const StyledSelectItem = styled.li`
 const SelectItem = ({ onClick, option }) => (
 
     <StyledSelectItem onClick={ () => onClick(option) }>
-        { option ? `${option}` : 'failure' }
+        { option ? `${option}` : 'error' }
     </StyledSelectItem>
 
 )

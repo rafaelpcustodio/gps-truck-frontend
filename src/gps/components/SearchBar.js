@@ -5,16 +5,24 @@ import PoiType from './PoiType'
 import Radius from './Radius'
 import SearchBarContainer from '../components/SearchBarContainer'
 import Button from '../../components/Button'
+import { radiusDefaultList } from '../constants'
 
 import { isEmpty } from '../../utils/functions'
+
+import { defaultPoiTypeMessage, defaultRadiusMessage } from '../constants'
 
 
 const SearchBar = props => {
 
     const {
         poiTypeList,
+        poiTypeSelected,
+        radiusSelected,
         requestPoiTypesAction,
         requestSetRadiusSelectedAction,
+        requestResetLocationsAction,
+        requestResetMinimumDistanceAction,
+        requestResetSuggestionsAction,
         requestSetPoiTypeSelectedAction,
         requestSetLicensePlateSelectedAction,
         requestGetSuggestionsAction,
@@ -37,22 +45,37 @@ const SearchBar = props => {
         }
     }, [truckLocations])
 
+    const handleText = changedLicensePlate => {
+        requestSetRadiusSelectedAction(defaultRadiusMessage)
+        requestSetPoiTypeSelectedAction(defaultPoiTypeMessage)
+        requestResetMinimumDistanceAction()
+        requestResetLocationsAction()
+        requestResetSuggestionsAction()
+        updateDisableDropDown(true)
+    }
+
     const [ disableDropDown, updateDisableDropDown ] = useState(true)
-    
+
+    const [ radiusList ] = useState(radiusDefaultList)
+
     return (
         <SearchBarContainer>
             <LicensePlate 
+                handleText={handleText}
                 requestSetLicensePlateSelectedAction={requestSetLicensePlateSelectedAction}
             />
             <PoiType 
-                defaultConstant = {'Select POI type'}
+                defaultConstant = {defaultPoiTypeMessage}
+                selected={poiTypeSelected}
                 disableDropDown = {disableDropDown}
                 options={poiTypeList.map(poiType => poiType.name)}
                 onSelect={requestSetPoiTypeSelectedAction}
             />
             <Radius 
-                defaultConstant = {'Select radius'}
+                defaultConstant = {defaultRadiusMessage}
+                selected={radiusSelected}
                 disableDropDown= {disableDropDown}
+                options={radiusList.map(radius => radius)}
                 onSelect={requestSetRadiusSelectedAction}
             />
             <Button text={"Apply"} action={handleClick}/>

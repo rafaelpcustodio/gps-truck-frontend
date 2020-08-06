@@ -19,7 +19,16 @@ const setLicensePlateSelectedAction = createAction(actions.SET_LICENSE_PLATE_SEL
 const requestSetLicensePlateSelectedAction = createAction(actions.REQUEST_SET_LICENSE_PLATE_SELECTED)
 
 const requestGetLocationAction = createAction(actions.REQUEST_GET_LOCATION)
-const requestSetLocationAction = createAction(actions.REQUEST_SET_LOCATION)
+
+const requestResetLocationsAction = createAction(actions.REQUEST_RESET_LOCATIONS)
+const resetLocationsAction = createAction(actions.RESET_LOCATIONS)
+
+const requestResetSuggestionsAction = createAction(actions.REQUEST_RESET_SUGGESTIONS)
+const resetSuggestionsAction = createAction(actions.RESET_SUGGESTIONS)
+
+
+const requestResetMinimumDistanceAction = createAction(actions.REQUEST_RESET_MINIMUM_DISTACE)
+const resetMinimumDistanceAction = createAction(actions.RESET_MINIMUM_DISTACE)
 
 const requestGetSuggestionsAction = createAction(actions.REQUEST_SET_SUGGESTIONS)
 const setSuggestionsAction = createAction(actions.SET_SUGGESTIONS)
@@ -30,6 +39,7 @@ const setTruckLocationsAction = createAction(actions.SET_LOCATIONS)
 const setMinimumDistanceAction = createAction(actions.SET_MINIMUM_DISTANCE)
 
 const setNoLocationsAction = createAction(actions.SET_NO_LOCATIONS)
+const requestSetNoLocationsAction = createAction(actions.REQUEST_SET_NO_LOCATIONS)
 
 export {
     getPoiTypesAction,
@@ -38,10 +48,16 @@ export {
     requestGetSuggestionsAction,
     requestGetTruckLocationsAction,
     requestSetLicensePlateSelectedAction,
-    requestSetLocationAction,
+    requestResetLocationsAction,
+    requestResetMinimumDistanceAction,
+    requestResetSuggestionsAction,
+    requestSetNoLocationsAction,
     requestSetPoiTypeSelectedAction,
     requestSetRadiusSelectedAction,
     requestSetRadiusListAction,
+    resetSuggestionsAction,
+    resetLocationsAction,
+    resetMinimumDistanceAction,
     setMinimumDistanceAction,
     setNoLocationsAction,
     setLicensePlateSelectedAction,

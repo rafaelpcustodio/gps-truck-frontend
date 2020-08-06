@@ -1,20 +1,21 @@
 
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { not } from '../utils/functions'
+import { not, isNotEmpty } from '../utils/functions'
 
-import SelectContainer from './SelectContainer'
+import SelectRadiusContainer from './SelectRadiusContainer'
 import SelectList from './SelectList'
 import StyledSelect from './StyledSelect'
 
-const Select = props => {
+const SelectRadius = props => {
     
     const {
         defaultConstant,
         disabled,
         onSelect,
-        options
+        options,
+        selected
     } = props
 
     const [ expanded, updateExpanded ] = useState(false)
@@ -27,10 +28,16 @@ const Select = props => {
         updateOptionSelected(option)
         onSelect(option)
     }
+
+    useEffect(() => {
+        if(isNotEmpty(selected)) {
+            updateOptionSelected(selected)
+        }
+    }, [selected])
     
     return (
         <StyledSelect disabled={disabled}>
-            <SelectContainer
+            <SelectRadiusContainer
                 disabled={disabled}
                 expanded={ expanded }
                 hasCaret={ true }
@@ -45,18 +52,18 @@ const Select = props => {
     )
 }
 
-Select.defaultProps = {
+SelectRadius.defaultProps = {
     defaultConstant: '',
     disabled: false,
     onSelect: null,
     options: []
 }
 
-Select.propTypes = {
+SelectRadius.propTypes = {
     defaultConstant: PropTypes.string,
     disabled: PropTypes.bool.isRequired,
     onSelect: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
-export default Select
+export default SelectRadius

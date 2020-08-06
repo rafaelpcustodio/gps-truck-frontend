@@ -7,6 +7,8 @@ import firstLocationMarker from '../../_assets/img/icn-first-location.png'
 
 import { isNotEmpty } from '../../utils/functions'
 
+import { colors } from '../../helpers/colors'
+
 const GoogleMap = props => {
 
     const {
@@ -45,7 +47,7 @@ const GoogleMap = props => {
                     isNotEmpty(minimumDistance) && isNotEmpty(truckLocations[0]) && (
                         <Polyline 
                             geodesic={true}
-                            strokeColor={'#32B3C3'}
+                            strokeColor={colors.lightGreen}
                             strokeOpacity={1.0}
                             icons={[{icon: arrow, offset: '100%'}]}
                             strokeWeight={2}

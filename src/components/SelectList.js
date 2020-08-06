@@ -3,8 +3,6 @@ import React from 'react'
 
 import SelectItem from './SelectItem'
 import StyledSelectList from './StyledSelectList'
-import If from '../components/If'
-import { isNotEmpty } from '../utils/functions'
 
 const SelectList = ({ expanded, onSelect, options }) => {
     

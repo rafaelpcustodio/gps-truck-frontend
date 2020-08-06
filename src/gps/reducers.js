@@ -1,11 +1,13 @@
 import { handleActions } from 'redux-actions'
-import { Record, List } from 'immutable'
 
 import { store } from './store'
 
 import {
     getPoiTypesAction,
+    resetLocationsAction,
+    resetSuggestionsAction,
     setLicensePlateSelectedAction,
+    resetMinimumDistanceAction,
     setTruckLocationsAction,
     setRadiusSelectedAction,
     setPoiTypeSelectedAction,
@@ -19,6 +21,9 @@ const reducers = handleActions({
     [getPoiTypesAction]: (state, { payload }) => state.merge({
         poiTypeList: payload
     }),
+    [resetLocationsAction]:  state => state.merge({ truckLocations: [] }),
+    [resetMinimumDistanceAction]:  state => state.merge({ minimumDistance: [] }),
+    [resetSuggestionsAction]:  state => state.merge({ suggestionsList: [] }),
     [setLicensePlateSelectedAction]: (state, { payload }) => state.set('licensePlateSelected', payload),
     [setMinimumDistanceAction]: (state, { payload }) => state.set('minimumDistance', payload),
     [setNoLocationsAction]: (state, { payload }) => state.set('noLocations', payload),

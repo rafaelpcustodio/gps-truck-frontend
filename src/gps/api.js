@@ -7,6 +7,7 @@ import MinimumDistance from '../models/MinimumDistance'
 import { responseWasOK } from '../utils/http'
 
 import EstablishmentsType from '../models/EstablishmentsType'
+import { isNotEmpty } from '../utils/functions'
 
 const getAllPoiTypes = () => {
     let API_URL = `http://localhost:8080/api/v1/establishments`
@@ -55,15 +56,17 @@ const getCandidatesSuggested = ({ service,request }) => {
 }
 
 const getLocations = licensePlate => {
-    const nowDateMinusOneHour = moment(new Date()).subtract(1, 'hours').format()
-    let API_URL = `http://localhost:8080/api/v1/locations/${licensePlate.toUpperCase()}?dateTime=${nowDateMinusOneHour}`
-    return http.get(API_URL)
-    .then(({ data, status }) => {
-        const { vehicleLocationEntities } = data
-        if (responseWasOK(status)) {
-            return vehicleLocationEntities
-        }
-    }).catch(error => error)
+    if(isNotEmpty(licensePlate)) {
+        const nowDateMinusOneHour = moment(new Date()).subtract(1, 'hours').format()
+        let API_URL = `http://localhost:8080/api/v1/locations/${licensePlate.toUpperCase()}?dateTime=${nowDateMinusOneHour}`
+        return http.get(API_URL)
+        .then(({ data, status }) => {
+            const { vehicleLocationEntities } = data
+            if (responseWasOK(status)) {
+                return vehicleLocationEntities
+            }
+        }).catch(error => error)
+    }
 }
 
 export {

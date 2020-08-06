@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import Select from '../../components/Select'
+import SelectPoiType from '../../components/SelectPoiType'
 
 
 const PoiType = props => {
@@ -9,15 +9,17 @@ const PoiType = props => {
         disableDropDown, 
         defaultConstant, 
         options, 
-        onSelect 
+        onSelect,
+        selected
     } = props
     
     return (
-        <Select
+        <SelectPoiType
             defaultConstant = { defaultConstant }
             disabled= {disableDropDown}
             onSelect={ POITypeSelected => onSelect(POITypeSelected) }
             options={ options }
+            selected={selected}
         />
     )
 }

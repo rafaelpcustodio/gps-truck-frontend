@@ -1,23 +1,26 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Select from '../../components/Select'
+import SelectRadius from '../../components/SelectRadius'
+
+import { radiusDefaultList } from '../constants'
 
 const Radius = props => {
 
     const { 
         disableDropDown, 
         defaultConstant,
-        onSelect 
+        onSelect,
+        options,
+        selected
     } = props
-
-    const [ radiusList ] = useState(['1000', '2000', '4000', '4500', '5000'])
     
     return (
-        <Select
+        <SelectRadius
             disabled={disableDropDown}
             defaultConstant = { defaultConstant }
             onSelect={ RadiusSelected => onSelect(RadiusSelected) }
-            options={ radiusList }
+            options={ options }
+            selected={selected}
         />
     )
 }

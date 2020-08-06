@@ -6,10 +6,10 @@ import StyledMinimumDisance from './StyledMinimumDistance'
 const MinimumDistance = props => {
 
     const { distance } = props
-    
+    console.log(Math.round(distance))
     return (
         <StyledMinimumDisance>
-            { `Closest opened Service distance: ${distance}m` }
+            { `Closest opened Service: ${Math.round(distance)}m` }
         </StyledMinimumDisance>
     )
 }

@@ -8,8 +8,11 @@ import {
     requestGetTruckLocationsAction,
     requestPoiTypesAction,
     requestSetLicensePlateSelectedAction,
-    requestSetLocationAction,
+    requestResetLocationsAction,
+    requestResetMinimumDistanceAction,
+    requestResetSuggestionsAction,
     requestSetRadiusSelectedAction,
+    requestSetNoLocationsAction,
     requestGetSuggestionsAction,
     requestSetPoiTypeSelectedAction
 } from '../actions'
@@ -42,8 +45,11 @@ const mapDispatchToProps = {
     requestGetLocationAction,
     requestGetTruckLocationsAction,
     requestPoiTypesAction,
+    requestSetNoLocationsAction,
     requestSetLicensePlateSelectedAction,
-    requestSetLocationAction,
+    requestResetLocationsAction,
+    requestResetMinimumDistanceAction,
+    requestResetSuggestionsAction,
     requestSetPoiTypeSelectedAction,
     requestSetRadiusSelectedAction,
     requestGetSuggestionsAction

@@ -4,11 +4,11 @@ class MinimumDistance {
 
     constructor({ location, minimumDistance }) {
         this._location = new Location(location)
-        this._minimumDistance = minimumDistance
+        this._distance = minimumDistance
     }
 
-    get minimumDistance() {
-        return this._minimumDistance
+    get distance() {
+        return this._distance
     }
 
     get location() {

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { colors } from '../../helpers/colors'
 
 const SearchBarContainer =  styled.div`
-    background: ${colors.subHeaderBackground};
+    background: ${colors.searchBarBackgroundColor};
     box-shadow: 2px 2px 2px ${colors.lightGray};
     display: flex;
     z-index: 1;

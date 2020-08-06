@@ -3,7 +3,7 @@ import { Record } from 'immutable'
 const store = Record({
     licensePlateSelected: {},
     minimumDistance: {},
-    noLocation: false,
+    noLocations: false,
     poiTypeList: [],
     poiTypeSelected: {},
     radiusList: [],
