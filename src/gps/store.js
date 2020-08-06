@@ -1,14 +1,15 @@
-import { Record } from 'immutable';
+import { Record } from 'immutable'
 
 const store = Record({
     licensePlateSelected: {},
-    truckLocations: [],
+    minimumDistance: {},
+    noLocation: false,
     poiTypeList: [],
     poiTypeSelected: {},
-    minimumDistance: {},
     radiusList: [],
     radiusSelected: {},
-    suggestionsList: []
+    suggestionsList: [],
+    truckLocations: []
 })();
 
 export { store }

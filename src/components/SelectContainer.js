@@ -1,23 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { isNotEmpty, not } from '../utils/functions'
+import { isNotEmpty } from '../utils/functions'
 
 import { colors } from '../helpers/colors'
 
-import If from './If'
-
 import Dropdown from './DropDown'
-
-const StyledSelectContainer = styled.div`
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    white-space: nowrap;
-    &:hover {
-        cursor: pointer;
-    }
-`
+import StyledSelectContainer from './StyledSelectedContainer'
 
 const SelectText = styled.span`
     color: ${colors.subText};
@@ -27,16 +16,13 @@ const SelectText = styled.span`
     width: 100%;
 `
 
-
 const SelectContainer = ( { disabled, expanded, onClick, hasCaret, optionSelected } ) => {
 
     return (
         <StyledSelectContainer>
-           <If condition={ not(hasCaret) && not(optionSelected) } el={
-                <SelectText disabled={disabled} onClick={ onClick }>{ optionSelected.length > 0 ?
-                        `${optionSelected}` : '' }
-                </SelectText> }>
-            </If>
+            <SelectText disabled={disabled} onClick={ onClick }>{ optionSelected.length > 0 ?
+                    `${optionSelected}` : '' }
+            </SelectText>
             <Dropdown
                 dark
                 disabled={disabled}

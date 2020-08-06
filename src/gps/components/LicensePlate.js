@@ -11,7 +11,6 @@ const StyledLicensePlateText = styled.input`
     height: 32px;
     padding: .7rem 1rem;
     position: relative;
-    type: text;
     width: 15rem;
 `
 
@@ -32,9 +31,11 @@ const LicensePlate = props => {
     }, [text])
 
     return (
-        <StyledLicensePlateText 
-            placeholder={'Search by license plate'} 
-            value={text} onChange={handleChange}
+        <StyledLicensePlateText
+            onChange={handleChange}
+            placeholder={'License plate (ex: ABC1234)'}
+            maxLength={"7"}
+            value={text}
         />
     )
 }

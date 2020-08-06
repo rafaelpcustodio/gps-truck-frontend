@@ -3,7 +3,7 @@ import CandidateLocation from './CandidateLocation'
 class Geometry {
 
     constructor({ location }) {
-        this._location = new CandidateLocation(location)
+        this._location = location
     }
 
     get location() {

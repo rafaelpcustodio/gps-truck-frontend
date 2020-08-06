@@ -1,27 +1,15 @@
 
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import styled from 'styled-components'
 
 import { not } from '../utils/functions'
 
-import { colors } from '../helpers/colors'
-
 import SelectContainer from './SelectContainer'
 import SelectList from './SelectList'
-
-const StyledSelect = styled.div`
-    background: ${colors.default};
-    border: 1px solid ${colors.lightGray};
-    color: ${({ disabled }) => disabled ? colors.disabled : colors.text};
-    position: relative;
-    pointer-events: ${({ disabled }) => disabled ? 'none' : 'initial'};
-    height: 32px;
-    margin: 8px 8px 5px 8px;
-    width: 9.5rem;
-`
+import StyledSelect from './StyledSelect'
 
 const Select = props => {
+    
     const {
         defaultConstant,
         disabled,
@@ -45,8 +33,8 @@ const Select = props => {
             <SelectContainer
                 disabled={disabled}
                 expanded={ expanded }
-                onClick={ handleDropdownClick }
                 hasCaret={ true }
+                onClick={ handleDropdownClick }
                 optionSelected={ optionSelected }/>
             <SelectList
                 expanded={ expanded }
@@ -58,7 +46,7 @@ const Select = props => {
 }
 
 Select.defaultProps = {
-    defaultConstant: null,
+    defaultConstant: '',
     disabled: false,
     onSelect: null,
     options: []
@@ -66,10 +54,9 @@ Select.defaultProps = {
 
 Select.propTypes = {
     defaultConstant: PropTypes.string,
-    onReasonClear: PropTypes.func,
+    disabled: PropTypes.bool.isRequired,
     onSelect: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
-export { StyledSelect }
 export default Select

@@ -12,6 +12,13 @@ class CandidateLocation {
     get lng() {
         return this._lng
     }
+
+    get toDTO() {
+        return {
+            latitude: this.lat,
+            longitude: this.lng
+        }
+    }
 }
 
 export default CandidateLocation

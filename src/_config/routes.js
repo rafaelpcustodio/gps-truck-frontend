@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Redirect, Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 
 import { combineRoutes } from '../utils/routes';

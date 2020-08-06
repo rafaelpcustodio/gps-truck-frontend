@@ -1,25 +1,57 @@
-import { createSelector } from 'reselect';
-const REDUCER_NAME = 'gpsReducers';
+import { createSelector } from 'reselect'
+const REDUCER_NAME = 'gpsReducers'
 
-const getRadiusList = state => state.get(REDUCER_NAME).get('radiusList');
+const getMinimumDistance = state => state.get(REDUCER_NAME).get('minimumDistance')
 
-const getPoitypeList = state => state.get(REDUCER_NAME).get('poiTypeList');
+const getPoitypeList = state => state.get(REDUCER_NAME).get('poiTypeList')
 
-const getSelectedPoiType = state => state.get(REDUCER_NAME).get('poiTypeSelected');
+const getRadiusList = state => state.get(REDUCER_NAME).get('radiusList')
 
-const getSelectedRadius = state => state.get(REDUCER_NAME).get('radiusSelected');
+const getSelectedPoiType = state => state.get(REDUCER_NAME).get('poiTypeSelected')
 
-const getSelectedLicensePlate = state => state.get(REDUCER_NAME).get('licensePlateSelected');
+const getSelectedRadius = state => state.get(REDUCER_NAME).get('radiusSelected')
 
-const getTruckLocationsList = state => state.get(REDUCER_NAME).get('truckLocations');
+const getSelectedLicensePlate = state => state.get(REDUCER_NAME).get('licensePlateSelected')
 
-const getSuggestionsList = state => state.get(REDUCER_NAME).get('suggestionsList');
+const getSuggestionsList = state => state.get(REDUCER_NAME).get('suggestionsList')
 
-const getMinimumDistance = state => state.get(REDUCER_NAME).get('minimumDistance');
+const getTruckLocationsList = state => state.get(REDUCER_NAME).get('truckLocations')
+
+const getNoLocations = state => state.get(REDUCER_NAME).get('noLocations')
+
+const getNoLocationsSelector = createSelector(
+    getNoLocations,
+    noLocations => noLocations
+);
+
+const getLicensePlateSelectedSelector = createSelector(
+    getSelectedLicensePlate,
+    licensePlateSelected => licensePlateSelected
+);
+
+const getListRadiusSelector = createSelector(
+    getRadiusList,
+    radiusList => radiusList
+);
+
+const getListPoiTypeSelector = createSelector(
+    getPoitypeList,
+    poiTypeList => poiTypeList
+);
 
 const getMinimumDistanceSelector = createSelector(
     getMinimumDistance,
     minimumDistance => minimumDistance
+);
+
+const getPoiTypeSelectedSelector = createSelector(
+    getSelectedPoiType,
+    poiTypeSelected => poiTypeSelected
+);
+
+const getRadiusSelectedSelector = createSelector(
+    getSelectedRadius,
+    radiusSelected => radiusSelected
 );
 
 const getSuggestionsListSelector = createSelector(
@@ -33,38 +65,14 @@ const getTruckLocationsListSelector = createSelector(
     truckLocations => truckLocations
 );
 
-const getLicensePlateSelectedSelector = createSelector(
-    getSelectedLicensePlate,
-    licensePlateSelected => licensePlateSelected
-);
-
-const getRadiusSelectedSelector = createSelector(
-    getSelectedRadius,
-    radiusSelected => radiusSelected
-);
-
-const getPoiTypeSelectedSelector = createSelector(
-    getSelectedPoiType,
-    poiTypeSelected => poiTypeSelected
-);
-
-const getListRadiusSelector = createSelector(
-    getRadiusList,
-    radiusList => radiusList
-);
-
-const getListPoiTypeSelector = createSelector(
-    getPoitypeList,
-    poiTypeList => poiTypeList
-);
-
 export {
     getLicensePlateSelectedSelector,
     getListPoiTypeSelector,
     getListRadiusSelector,
     getMinimumDistanceSelector,
-    getTruckLocationsListSelector,
-    getRadiusSelectedSelector,
+    getNoLocationsSelector,
     getPoiTypeSelectedSelector,
+    getRadiusSelectedSelector,
     getSuggestionsListSelector,
+    getTruckLocationsListSelector
 }

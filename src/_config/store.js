@@ -1,4 +1,4 @@
-import { connectRouter, routerMiddleware } from 'connected-react-router/immutable';
+import { routerMiddleware } from 'connected-react-router/immutable';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import { applyMiddleware, compose, createStore } from 'redux';

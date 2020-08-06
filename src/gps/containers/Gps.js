@@ -7,7 +7,6 @@ import {
     requestGetLocationAction,
     requestGetTruckLocationsAction,
     requestPoiTypesAction,
-    requestRadiusAction,
     requestSetLicensePlateSelectedAction,
     requestSetLocationAction,
     requestSetRadiusSelectedAction,
@@ -20,6 +19,7 @@ import {
     getListPoiTypeSelector,
     getListRadiusSelector,
     getMinimumDistanceSelector,
+    getNoLocationsSelector,
     getTruckLocationsListSelector,
     getRadiusSelectedSelector,
     getPoiTypeSelectedSelector,
@@ -29,23 +29,23 @@ import {
 const mapStateToProps = state => ({
     licensePlateSelected: getLicensePlateSelectedSelector(state),
     minimumDistance: getMinimumDistanceSelector(state),
-    truckLocations: getTruckLocationsListSelector(state),
+    noLocations: getNoLocationsSelector(state),
     poiTypeList: getListPoiTypeSelector(state),
     poiTypeSelected: getPoiTypeSelectedSelector(state),
     radiusList: getListRadiusSelector(state),
     radiusSelected: getRadiusSelectedSelector(state),
-    suggestionsList: getSuggestionsListSelector(state)
+    suggestionsList: getSuggestionsListSelector(state),
+    truckLocations: getTruckLocationsListSelector(state),
 })
 
 const mapDispatchToProps = {
     requestGetLocationAction,
     requestGetTruckLocationsAction,
     requestPoiTypesAction,
-    requestRadiusAction,
     requestSetLicensePlateSelectedAction,
     requestSetLocationAction,
+    requestSetPoiTypeSelectedAction,
     requestSetRadiusSelectedAction,
-    requestGetSuggestionsAction,
-    requestSetPoiTypeSelectedAction
+    requestGetSuggestionsAction
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Gps)

@@ -1,19 +1,13 @@
 import Geometry from './Geometry'
-import OpeningHours from './OpeningHours'
 import { getIcon } from '../../utils/functions'
 
 class Candidate {
 
-    constructor({ geometry, name, opening_hours = '', rating, types, business_status }) {
+    constructor({ geometry, name, rating, types }) {
         this._geometry = new Geometry(geometry)
         this._name = name
         this._rating = rating
-        this._opening_hours = new OpeningHours(opening_hours)
         this._types = types
-    }
-
-    get opening_hours() {
-        return this._opening_hours
     }
 
     get geometry() {
@@ -30,6 +24,20 @@ class Candidate {
 
     get types() {
         return this._types
+    }
+
+    get toCandidateLocationDTO() {
+        return {
+            latitude: this.geometry.location.lat(),
+            longitude: this.geometry.location.lng()
+        }
+    }
+
+    get toGoogleMaps() {
+        return {
+            lat: this.geometry.location.lat(),
+            lng: this.geometry.location.lng()
+        }
     }
 
     getIcon() {
