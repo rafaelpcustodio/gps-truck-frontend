@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import { config } from './config'
 
-const DEFAULT_PATH = config.api.baseURL || 'http://localhost:8080'
+const DEFAULT_PATH = config.api.baseURL
 
 const http = axios.create({
     baseURL: DEFAULT_PATH,

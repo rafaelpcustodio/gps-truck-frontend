@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Button component Should render without crash 1`] = `
+<button
+  className="StyledButton-sc-1z0vb0n-0 ejBCHp"
+  onClick={[MockFunction]}
+>
+  <div
+    className="Button__StyledText-ko51rl-0 eowQDx"
+  >
+    text
+  </div>
+</button>
+`;

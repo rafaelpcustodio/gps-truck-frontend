@@ -18,9 +18,7 @@ import {
 } from './actions'
 
 const reducers = handleActions({
-    [getPoiTypesAction]: (state, { payload }) => state.merge({
-        poiTypeList: payload
-    }),
+    [getPoiTypesAction]: (state, { payload }) => state.merge({poiTypeList: payload}),
     [resetLocationsAction]:  state => state.merge({ locationsList: [] }),
     [resetMinimumDistanceAction]:  state => state.merge({ minimumDistance: [] }),
     [resetSuggestionsAction]:  state => state.merge({ suggestionsList: [] }),

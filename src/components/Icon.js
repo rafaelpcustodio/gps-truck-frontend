@@ -11,6 +11,7 @@ const Icon = ({ color, className, icon, size }) => (
 Icon.defaultProps = {
     className: '',
     color: '',
+    icon: '',
     size: 'lg'
 }
 

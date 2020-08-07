@@ -24,14 +24,18 @@ const Radius = props => {
 }
 
 Radius.defaultProps = {
-    defaultConstant: PropTypes.string.isRequired,
-    onSelect: null
+    disableDropDown: true,
+    defaultConstant: '',
+    onSelect: null,
+    options: []
 }
 
 Radius.propTypes = {
+    disableDropDown: PropTypes.bool.isRequired,
     defaultConstant: PropTypes.string.isRequired,
     onSelect: PropTypes.func.isRequired,
-    selectedRadius: PropTypes.string
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selected: PropTypes.string
 }
 
 export default Radius

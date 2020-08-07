@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Gps component Should render without crash 1`] = `
+Array [
+  <div
+    className="SearchBarContainer-sc-1byzrjc-0 janIPg"
+  >
+    <input
+      className="LicensePlate__StyledLicensePlateText-pf7qoz-0 ksfRmt"
+      maxLength="7"
+      onChange={[Function]}
+      placeholder="License plate (ex: ABC1234)"
+      value=""
+    />
+    <div
+      className="StyledSelect-sc-17xe3wx-0 cnxjXs"
+      disabled={true}
+    >
+      <div
+        className="StyledSelectedContainer__StyledSelectContainer-sc-2m0ndn-0 fwyTFq"
+      >
+        <span
+          className="SelectPoiTypeContainer__SelectText-sc-19t5xdi-0 iSHPxC"
+          disabled={true}
+          onClick={[Function]}
+        >
+          Select POI type
+        </span>
+        <button
+          className="StyledDropdown-sc-1d17mlt-0 crWdhk"
+        />
+      </div>
+      <div
+        className="StyledSelectList-vv0ppr-0 djStfM"
+      >
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          Restaurants
+        </li>
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          Hotels
+        </li>
+      </div>
+    </div>
+    <div
+      className="StyledSelect-sc-17xe3wx-0 cnxjXs"
+      disabled={true}
+    >
+      <div
+        className="StyledSelectedContainer__StyledSelectContainer-sc-2m0ndn-0 fwyTFq"
+      >
+        <span
+          className="SelectRadiusContainer__SelectText-sz6f5m-0 heeAuE"
+          disabled={true}
+          onClick={[Function]}
+        >
+          Select radius
+        </span>
+        <button
+          className="StyledDropdown-sc-1d17mlt-0 crWdhk"
+        />
+      </div>
+      <div
+        className="StyledSelectList-vv0ppr-0 djStfM"
+      >
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          1000
+        </li>
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          2000
+        </li>
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          4000
+        </li>
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          4500
+        </li>
+      </div>
+    </div>
+    <button
+      className="StyledButton-sc-1z0vb0n-0 ejBCHp"
+      onClick={[Function]}
+    >
+      <div
+        className="Button__StyledText-ko51rl-0 eowQDx"
+      >
+        Apply
+      </div>
+    </button>
+  </div>,
+  <div
+    className="StyledMinimumDistance__StyledMinimumDisance-vqza48-0 kYkUOE"
+  >
+    Closest opened Service: 400m
+  </div>,
+  <div>
+    Loading...
+  </div>,
+]
+`;
+
+exports[`Tests for Gps component Should render without crash 2`] = `
+Array [
+  <div
+    className="SearchBarContainer-sc-1byzrjc-0 janIPg"
+  >
+    <input
+      className="LicensePlate__StyledLicensePlateText-pf7qoz-0 ksfRmt"
+      maxLength="7"
+      onChange={[Function]}
+      placeholder="License plate (ex: ABC1234)"
+      value=""
+    />
+    <div
+      className="StyledSelect-sc-17xe3wx-0 cnxjXs"
+      disabled={true}
+    >
+      <div
+        className="StyledSelectedContainer__StyledSelectContainer-sc-2m0ndn-0 fwyTFq"
+      >
+        <span
+          className="SelectPoiTypeContainer__SelectText-sc-19t5xdi-0 iSHPxC"
+          disabled={true}
+          onClick={[Function]}
+        >
+          Select POI type
+        </span>
+        <button
+          className="StyledDropdown-sc-1d17mlt-0 crWdhk"
+        >
+          <
+            className=""
+            color="#aaaaaa"
+            data-cy="icon"
+            icon="caret-down"
+            size="lg"
+          />
+        </button>
+      </div>
+      <div
+        className="StyledSelectList-vv0ppr-0 djStfM"
+      >
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          Restaurants
+        </li>
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          Hotels
+        </li>
+      </div>
+    </div>
+    <div
+      className="StyledSelect-sc-17xe3wx-0 cnxjXs"
+      disabled={true}
+    >
+      <div
+        className="StyledSelectedContainer__StyledSelectContainer-sc-2m0ndn-0 fwyTFq"
+      >
+        <span
+          className="SelectRadiusContainer__SelectText-sz6f5m-0 heeAuE"
+          disabled={true}
+          onClick={[Function]}
+        >
+          Select radius
+        </span>
+        <button
+          className="StyledDropdown-sc-1d17mlt-0 crWdhk"
+        >
+          <
+            className=""
+            color="#aaaaaa"
+            data-cy="icon"
+            icon="caret-down"
+            size="lg"
+          />
+        </button>
+      </div>
+      <div
+        className="StyledSelectList-vv0ppr-0 djStfM"
+      >
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          1000
+        </li>
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          2000
+        </li>
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          4000
+        </li>
+        <li
+          className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+          onClick={[Function]}
+        >
+          4500
+        </li>
+      </div>
+    </div>
+    <button
+      className="StyledButton-sc-1z0vb0n-0 ejBCHp"
+      onClick={[Function]}
+    >
+      <div
+        className="Button__StyledText-ko51rl-0 eowQDx"
+      >
+        Apply
+      </div>
+    </button>
+  </div>,
+  <div
+    className="StyledMinimumDistance__StyledMinimumDisance-vqza48-0 kYkUOE"
+  >
+    Closest opened Service: 400m
+  </div>,
+  <div>
+    Loading...
+  </div>,
+]
+`;
+
+exports[`Tests for PoiType component Should render without crash 1`] = `
+<div
+  className="StyledSelect-sc-17xe3wx-0 cnxjXs"
+  disabled={true}
+>
+  <div
+    className="StyledSelectedContainer__StyledSelectContainer-sc-2m0ndn-0 fwyTFq"
+  >
+    <span
+      className="SelectRadiusContainer__SelectText-sz6f5m-0 heeAuE"
+      disabled={true}
+      onClick={[Function]}
+    >
+      1000
+    </span>
+    <button
+      className="StyledDropdown-sc-1d17mlt-0 crWdhk"
+    />
+  </div>
+  <div
+    className="StyledSelectList-vv0ppr-0 djStfM"
+  >
+    <li
+      className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+      onClick={[Function]}
+    >
+      1000
+    </li>
+    <li
+      className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+      onClick={[Function]}
+    >
+      2000
+    </li>
+  </div>
+</div>
+`;

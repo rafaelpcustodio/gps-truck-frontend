@@ -56,14 +56,15 @@ SelectRadius.defaultProps = {
     defaultConstant: '',
     disabled: false,
     onSelect: null,
-    options: []
+    options: [],
 }
 
 SelectRadius.propTypes = {
-    defaultConstant: PropTypes.string,
+    defaultConstant: PropTypes.string.isRequired,
     disabled: PropTypes.bool.isRequired,
     onSelect: PropTypes.func.isRequired,
-    options: PropTypes.arrayOf(PropTypes.string).isRequired
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selected: PropTypes.string
 }
 
 export default SelectRadius

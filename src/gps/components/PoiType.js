@@ -35,7 +35,8 @@ PoiType.propTypes = {
     defaultConstant: PropTypes.string.isRequired,
     disableDropDown: PropTypes.bool.isRequired,
     onSelect: PropTypes.func.isRequired,
-    options: PropTypes.arrayOf(PropTypes.string).isRequired
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selected: PropTypes.string
 }
 
 export default PoiType

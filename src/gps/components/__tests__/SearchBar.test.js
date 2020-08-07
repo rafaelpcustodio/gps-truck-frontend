@@ -8,12 +8,12 @@ import { Provider } from 'react-redux'
 import MinimumDistance from '../../../models/MinimumDistance'
 import Candidate from '../../../models/suggestions/Candidate'
 
-import Gps from '../Gps'
+import SearchBar from '../SearchBar'
 
 import Location from '../../../models/Location'
 import Geometry from '../../../models/suggestions/Geometry'
 
-describe('Tests for Gps component', () => {
+describe('Tests for SearchBar component', () => {
     let minimumDistance = {}
     let poiTypeSelected = ''
     let radiusSelected = ''
@@ -50,12 +50,12 @@ describe('Tests for Gps component', () => {
         store = mockStore(Record({
             gpsReducers: Map({
                 licensePlateSelected: 'ABC1234',
-                minimumDistance: {},
+                minimumDistance: minimumDistance,
                 noLocations: false,
                 poiTypeList: poiTypeList,
-                poiTypeSelected: 'Hotels',
+                poiTypeSelected: 'Restaurants',
                 radiusList: radiusList,
-                radiusSelected: radiusSelected,
+                radiusSelected: poiTypeSelected,
                 suggestionsList: suggestionsList,
                 locationsList: locationsList
             })
@@ -63,21 +63,19 @@ describe('Tests for Gps component', () => {
 
         const tree = renderer.create(
             <Provider store={ store }>
-                <Gps
-                    minimumDistance={minimumDistance}
+                <SearchBar
                     poiTypeList={poiTypeList}
                     poiTypeSelected={poiTypeSelected}
                     radiusSelected={radiusSelected}
-                    requestGetLocationsAction={ jest.fn() }
-                    requestGetSuggestionsAction={ jest.fn() }
                     requestPoiTypesAction={ jest.fn() }
+                    requestSetRadiusSelectedAction={ jest.fn() }
                     requestResetLocationsAction={ jest.fn() }
                     requestResetMinimumDistanceAction={ jest.fn() }
                     requestResetSuggestionsAction={ jest.fn() }
-                    requestSetLicensePlateSelectedAction={ jest.fn() }
-                    requestSetRadiusSelectedAction={ jest.fn() }
                     requestSetPoiTypeSelectedAction={ jest.fn() }
-                    suggestionsList={suggestionsList}
+                    requestSetLicensePlateSelectedAction={ jest.fn() }
+                    requestGetSuggestionsAction={ jest.fn() }
+                    requestGetLocationsAction={ jest.fn() }
                     locationsList={locationsList}
                 />
             </Provider>

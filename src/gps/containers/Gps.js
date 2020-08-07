@@ -19,7 +19,6 @@ import {
 import {
     getLicensePlateSelectedSelector,
     getListPoiTypeSelector,
-    getListRadiusSelector,
     getMinimumDistanceSelector,
     getNoLocationsSelector,
     getLocationsListSelector,
@@ -34,7 +33,6 @@ const mapStateToProps = state => ({
     noLocations: getNoLocationsSelector(state),
     poiTypeList: getListPoiTypeSelector(state),
     poiTypeSelected: getPoiTypeSelectedSelector(state),
-    radiusList: getListRadiusSelector(state),
     radiusSelected: getRadiusSelectedSelector(state),
     suggestionsList: getSuggestionsListSelector(state),
     locationsList: getLocationsListSelector(state),

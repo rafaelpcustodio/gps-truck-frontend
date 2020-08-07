@@ -55,10 +55,12 @@ const LicensePlate = props => {
 }
 
 LicensePlate.defaultProps = {
+    handleText: null,
     requestSetLicensePlateSelectedAction: null
 }
 
 LicensePlate.propTypes = {
+    handleText: PropTypes.func.isRequired,
     requestSetLicensePlateSelectedAction: PropTypes.func.isRequired
 }
 

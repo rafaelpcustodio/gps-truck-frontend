@@ -1,13 +1,12 @@
 import { Record } from 'immutable'
 
 const store = Record({
-    licensePlateSelected: {},
+    licensePlateSelected: '',
     minimumDistance: {},
     noLocations: false,
     poiTypeList: [],
-    poiTypeSelected: {},
-    radiusList: [],
-    radiusSelected: {},
+    poiTypeSelected: '',
+    radiusSelected: '',
     suggestionsList: [],
     locationsList: []
 })();

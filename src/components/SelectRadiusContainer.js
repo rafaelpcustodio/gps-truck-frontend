@@ -41,7 +41,7 @@ SelectRadiusContainer.defaultProps = {
     expanded: false,
     hasCaret: true,
     onClick: null,
-    optionSelected: {}
+    optionSelected: ''
 }
 
 SelectRadiusContainer.propTypes = {

@@ -5,6 +5,9 @@ import truckMarker from '../../_assets/img/icn-current-location.png'
 import pathMarker from '../../_assets/img/icn-path.png'
 import firstLocationMarker from '../../_assets/img/icn-first-location.png'
 
+import Location from '../../models/Location'
+import Candidate from '../../models/suggestions/Candidate'
+
 import { isNotEmpty } from '../../utils/functions'
 
 import { colors } from '../../helpers/colors'
@@ -30,7 +33,7 @@ const GoogleMap = props => {
     const arrow = {
         path: window.google.maps.SymbolPath.FORWARD_CLOSED_ARROW
     }
-
+    
     return (
         <Map
             google={props.google}
@@ -98,8 +101,8 @@ GoogleMap.defaultProps = {
 
 GoogleMap.protoTypes = {
     minimumDistance: PropTypes.string,
-    suggestionsList: PropTypes.arrayOf(PropTypes.object),
-    locationsList: PropTypes.arrayOf(PropTypes.object)
+    suggestionsList: PropTypes.arrayOf(PropTypes.objectOf(Candidate)),
+    locationsList: PropTypes.arrayOf(PropTypes.objectOf(Location))
 }
 
 export default GoogleApiWrapper({

@@ -5,8 +5,6 @@ const getMinimumDistance = state => state.get(REDUCER_NAME).get('minimumDistance
 
 const getPoitypeList = state => state.get(REDUCER_NAME).get('poiTypeList')
 
-const getRadiusList = state => state.get(REDUCER_NAME).get('radiusList')
-
 const getSelectedPoiType = state => state.get(REDUCER_NAME).get('poiTypeSelected')
 
 const getSelectedRadius = state => state.get(REDUCER_NAME).get('radiusSelected')
@@ -27,11 +25,6 @@ const getNoLocationsSelector = createSelector(
 const getLicensePlateSelectedSelector = createSelector(
     getSelectedLicensePlate,
     licensePlateSelected => licensePlateSelected
-);
-
-const getListRadiusSelector = createSelector(
-    getRadiusList,
-    radiusList => radiusList
 );
 
 const getListPoiTypeSelector = createSelector(
@@ -68,7 +61,6 @@ const getLocationsListSelector = createSelector(
 export {
     getLicensePlateSelectedSelector,
     getListPoiTypeSelector,
-    getListRadiusSelector,
     getMinimumDistanceSelector,
     getNoLocationsSelector,
     getPoiTypeSelectedSelector,

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for SelectItem component Should render without crash 1`] = `
+<li
+  className="SelectItem__StyledSelectItem-c7nnhy-0 lkKUay"
+  onClick={[Function]}
+>
+  error
+</li>
+`;

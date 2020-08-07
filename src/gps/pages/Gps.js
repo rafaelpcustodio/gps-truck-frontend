@@ -9,6 +9,9 @@ import InformBox from '../../components/InformBox'
 
 import { isNotEmpty } from '../../utils/functions'
 
+import Candidate from '../../models/suggestions/Candidate'
+import Location from '../../models/Location'
+
 const Gps = props => {
     
     const {
@@ -30,7 +33,7 @@ const Gps = props => {
         suggestionsList,
         locationsList
     } = props
-
+    
     useEffect(() => {
         requestPoiTypesAction()
     }, [requestPoiTypesAction])
@@ -75,11 +78,9 @@ const Gps = props => {
 
 Gps.defaultProps = {
     poiTypeList: [],
-    radiusList: [],
     requestGetTruckLocationsAction: null,
     requestGetSuggestionsAction: null,
     requestPoiTypesAction: null,
-    requestRadiusAction: null,
     requestSetLicensePlateSelectedAction: null,
     requestSetRadiusSelectedAction: null,
     requestSetPoiTypeSelectedAction: null,
@@ -87,19 +88,17 @@ Gps.defaultProps = {
 
 Gps.protoTypes = {
     minimumDistance: PropTypes.string,
-    poiTypeList: PropTypes.arrayOf(PropTypes.object).isRequired,
-    poiTypeSelected: PropTypes.object,
-    radiusSelected: PropTypes.object,
-    radiusList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    poiTypeList: PropTypes.arrayOf(PropTypes.string).isRequired,
+    poiTypeSelected: PropTypes.string,
+    radiusSelected: PropTypes.string,
     requestGetTruckLocationsAction: PropTypes.func.isRequired,
     requestGetSuggestionsAction: PropTypes.func.isRequired,
     requestPoiTypesAction: PropTypes.func.isRequired,
-    requestRadiusAction: PropTypes.func.isRequired,
     requestSetLicensePlateSelectedAction: PropTypes.func.isRequired,
     requestSetRadiusSelectedAction: PropTypes.func.isRequired,
     requestSetPoiTypeSelectedAction: PropTypes.func.isRequired,
-    suggestionsList: PropTypes.arrayOf(PropTypes.object),
-    truckLocations: PropTypes.arrayOf(PropTypes.object),
+    suggestionsList: PropTypes.arrayOf(PropTypes.objectOf(Candidate)),
+    locationsList: PropTypes.arrayOf(PropTypes.objectOf(Location)),
 }
 
 export default Gps

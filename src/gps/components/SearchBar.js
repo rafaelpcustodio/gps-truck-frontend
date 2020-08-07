@@ -11,6 +11,8 @@ import { isEmpty } from '../../utils/functions'
 
 import { defaultPoiTypeMessage, defaultRadiusMessage } from '../constants'
 
+import Location from '../../models/Location'
+
 
 const SearchBar = props => {
 
@@ -29,7 +31,7 @@ const SearchBar = props => {
         requestGetLocationsAction,
         locationsList
     } = props
-
+    
     const handleClick = () => {
         if(isEmpty(locationsList)) {
             requestGetLocationsAction()
@@ -88,7 +90,6 @@ SearchBar.defaultProps = {
     onSelect: null,
     options: [],
     poiTypeList: [],
-    radiusList: [],
     requestSetLicensePlateSelectedAction: null,
     requestSetPoiTypeSelectedAction: null,
     requestSetRadiusSelectedAction: null,
@@ -101,13 +102,12 @@ SearchBar.protoTypes = {
     onSelect: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(PropTypes.string).isRequired,
     poiTypeList: PropTypes.arrayOf(PropTypes.string).isRequired,
-    radiusList: PropTypes.arrayOf(PropTypes.object),
     requestSetLicensePlateSelectedAction: PropTypes.func.isRequired,
     requestSetPoiTypeSelectedAction: PropTypes.func.isRequired,
     requestSetRadiusSelectedAction: PropTypes.func.isRequired,
     requestGetSuggestionsAction: PropTypes.func.isRequired,
     requestGetLocationsAction: PropTypes.func.isRequired,
-    locationsList: PropTypes.arrayOf(PropTypes.object)
+    locationsList: PropTypes.arrayOf(PropTypes.objectOf(Location))
 }
 
 export default SearchBar

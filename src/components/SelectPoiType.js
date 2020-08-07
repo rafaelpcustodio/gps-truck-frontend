@@ -53,7 +53,6 @@ const SelectPoiType = props => {
 }
 
 SelectPoiType.defaultProps = {
-    defaultConstant: '',
     disabled: false,
     onSelect: null,
     options: []
@@ -63,7 +62,8 @@ SelectPoiType.propTypes = {
     defaultConstant: PropTypes.string,
     disabled: PropTypes.bool.isRequired,
     onSelect: PropTypes.func.isRequired,
-    options: PropTypes.arrayOf(PropTypes.string).isRequired
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selected: PropTypes.string
 }
 
 export default SelectPoiType
