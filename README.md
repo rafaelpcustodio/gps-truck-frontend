@@ -75,4 +75,40 @@ After creating some location points. You can make a search based on the license 
 ```
 
 
+4 - Used libraries
+```
+- FontAwesome
+- Axios
+- Bootstrap
+- Connected-react-router
+- Dotenv
+- Google-maps-react
+- history
+- http
+- immutable
+- lodash
+- moment
+- props-types
+- react
+- react-aasync-script-loader
+- react-bootstrap
+- react-dom
+- react-fontawesome
+- react-modal
+- react-popper
+- react-redux
+- react-router
+- react-router-dom
+- react-scripts
+- react-transition-group
+- reactstrap
+- redux
+- redux-actions
+- redux-immutable
+- redux-saga
+- reselect
+- styled-components
+
+```
+
 
