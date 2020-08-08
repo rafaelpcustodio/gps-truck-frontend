@@ -118,7 +118,7 @@ After creating some location points. You can make a search based on the license 
 ```
 
 
-4 - Docker hub:
+5 - Docker hub:
 ```
 This application can also be found on docker hub:
 
