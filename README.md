@@ -24,13 +24,14 @@ on this link:
 https://developers.google.com/maps/documentation/javascript/get-api-key
 
 Basically you have to create an account on google. After that go to Google Cloud Platform. Select a project. Go on the left-side bar and select API and services. Select credentials.
-Create a credential, key for API. This will generate your API Key. After generating this API key. You have to  search for "Google Places API" and "Google maps API" on the Google Cloud Platform. Active them to allow your API Key to use these APIs.
+Create a credential, key for API. This will generate your API Key. After generating this API key. You have to  search for "Google Places API" and "Google maps API" on the Google Cloud Platform. Active them to allow your API Key to use these APIs. It is important to remember that
+your selected project must be with billing settings enabled before generating the Key.
 
 With your API KEY, go to the "docker-compose.yml" on the root of this project and paste it on the
-line 49:
+line 12:
 
 environment:
-      - REACT_APP_GOOGLE_API_KEY=YOUR_API_MUST_BE_HERE
+      - REACT_APP_GOOGLE_API_KEY=YOUR_GOOGLE_API_KEY_MUST_BE_HERE
 
 after it, save the changes.
 
@@ -38,7 +39,7 @@ In the root of the project type the following command on terminal:
 
 docker-compose up
 
-This command will build the image from Dockerfileof this project. 
+This command will build the image from Dockerfile of this project. 
 ```
 
 3 - Testing locally
