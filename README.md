@@ -24,8 +24,10 @@ on this link:
 https://developers.google.com/maps/documentation/javascript/get-api-key
 
 Basically you have to create an account on google. After that go to Google Cloud Platform. Select a project. Go on the left-side bar and select API and services. Select credentials.
-Create a credential, key for API. This will generate your API Key. After generating this API key. You have to  search for "Google Places API" and "Google maps API" on the Google Cloud Platform. Active them to allow your API Key to use these APIs. It is important to remember that
-your selected project must be with billing settings enabled before generating the Key.
+
+Create a credential, key for API. This will generate your API Key. After generating this API key. 
+You have to  search for "Google Places API" and "Google maps API" on the Google Cloud Platform. 
+Active them to allow your API Key to use these APIs. It is important to remember that your selected project must be with billing settings enabled before generating the Key.
 
 With your API KEY, go to the "docker-compose.yml" on the root of this project and paste it on the
 line 12:
