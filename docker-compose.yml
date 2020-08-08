@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+
+  gps-frontend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: gps-frontend
+    volumes:
+      - '/app/node_modules'
+    environment:
+      - REACT_APP_GOOGLE_API_KEY=AIzaSyA8vy6g5aabxi3Y8xfWfyxTwqwd5iSz37Y
+      - REACT_APP_ENVIRONMENT=local
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - '3000:3000'
+    stdin_open: true
