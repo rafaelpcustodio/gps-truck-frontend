@@ -71,7 +71,7 @@ const GoogleMap = props => {
                                 key={index}
                                 position={location}
                             />)
-                        } else if(index !== 0) {
+                        } else {
                             return(<Marker 
                                 icon={pathMarker}
                                 key={index}

@@ -32,7 +32,7 @@ const LicensePlate = props => {
         updateText(event.target.value)
         handleText(true)
     }
-
+    
     useEffect(() => {
         const regex = '[A-Z-a-z]{3}[0-9]{4}'
         if(!text.match(regex) && text.length > 0) {
@@ -41,7 +41,7 @@ const LicensePlate = props => {
             updateInvalidLicensePlate(false)
         }
         requestSetLicensePlateSelectedAction(text)
-    }, [text])
+    }, [text, requestSetLicensePlateSelectedAction])
 
     return (
         <StyledLicensePlateText
