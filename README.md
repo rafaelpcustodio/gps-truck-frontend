@@ -118,3 +118,12 @@ After creating some location points. You can make a search based on the license 
 ```
 
 
+4 - Docker hub:
+```
+This application can also be found on docker hub:
+
+https://hub.docker.com/repository/docker/rafaelpcustodio/gps-frontend
+
+```
+
+
