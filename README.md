@@ -17,9 +17,9 @@ git clone https://github.com/rafaelpcustodio/gps-truck-frontend.git
 
 2 - Starting application locally
 ```
-Before starting it. You must have a Google API key to be able to use Google APIs. This project
-uses Google Places API and Google Maps API. To create your key, you must follow the steps located
-on this link:
+Before starting it. You must have a Google API key to be able to use Google
+APIs. This project uses Google Places API and Google Maps API. To create your 
+key, you must follow the steps located on this link:
 
 https://developers.google.com/maps/documentation/javascript/get-api-key
 
