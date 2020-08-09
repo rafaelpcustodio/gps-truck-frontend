@@ -1,6 +1,6 @@
 
 # gps-frontend
-The aim of this project is to build an Front-End application responsible to interact with locations-service. This UI will show google maps and based on a license plate, it will retrieve
+The aim of this project is to build a Front-End application responsible to interact with locations-service. This UI will show google maps and based on a license plate, it will retrieve
 all locations from that license plate in the last two hours.
 
 Requirements
