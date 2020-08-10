@@ -1,13 +1,25 @@
 language: node_js
-sudo: true
-dist: trusty
+node_js:
+  - "stable"
 services:
   - 'docker'
-
+cache:
+  directories:
+  - node_modules
 # Build the application.
 script:
-  - 'make build'
-  - 'make image'
+  - npm test
+  - npm run build
+  - make build
+  - make image
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: build
+  on:
+    branch: feature/ci-cd
 
 # only execute the following instructions in
 # the case of a success (failing at this point
