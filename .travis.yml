@@ -1,8 +1,6 @@
-language: javascript
+language: node_js
 sudo: true
 dist: trusty
-jdk:
-  - oraclejdk9
 services:
   - 'docker'
 before_install:
