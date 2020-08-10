@@ -1,6 +1,5 @@
 IMAGE := ${DOCKER_USERNAME}/gps-frontend
 
-
 build:
 	npm install
 
