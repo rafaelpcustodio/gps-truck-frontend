@@ -1,6 +1,6 @@
 
 # gps-frontend
-The aim of this project is to build a Front-End application responsible to interact with locations-service. This UI will show google maps and based on a license plate, it will retrieve
+The aim of this project is to build a Front-End application responsible to interact with locations-api. This UI will show google maps and based on a license plate, it will retrieve
 all locations from that license plate in the last two hours.
 
 Requirements
@@ -56,15 +56,15 @@ This command will build the image from Dockerfile of this project.
 ```
 After following the instructions from the READ-ME located on the repository:
 
-https://github.com/rafaelpcustodio/locations-service
+https://github.com/rafaelpcustodio/locations-api
 
-You'll also have the backend API called locations-service which is responsible
+You'll also have the backend API called locations-api which is responsible
 for data retrieving for this Frontend Application.
 
 If you want to test. You can create some locations using the following end-point
-from locations-service:
+from locations-api:
 
-POST http::/localhost:8080/api/v1/locations 
+POST http://localhost:8080/api/v1/locations 
 
 with a request-body like:
 
