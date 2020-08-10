@@ -1,6 +1,6 @@
 
 # gps-frontend
-The aim of this project is to build an Front-End application responsible to interact with locations-service. This UI will show google maps and based on a license plate, it will retrieve
+The aim of this project is to build a Front-End application responsible to interact with locations-api. This UI will show google maps and based on a license plate, it will retrieve
 all locations from that license plate in the last two hours.
 
 Requirements
@@ -17,9 +17,9 @@ git clone https://github.com/rafaelpcustodio/gps-truck-frontend.git
 
 2 - Starting application locally
 ```
-Before starting it. You must have a Google API key to be able to use Google APIs. This project
-uses Google Places API and Google Maps API. To create your key, you must follow the steps located
-on this link:
+Before starting it. You must have a Google API key to be able to use Google
+APIs. This project uses Google Places API and Google Maps API. To create your 
+key, you must follow the steps located on this link:
 
 https://developers.google.com/maps/documentation/javascript/get-api-key
 
@@ -27,13 +27,18 @@ Basically you have to create an account on google.
 After that go to Google Cloud Platform. Select a project.
 Go on the left-side bar and select API and services. Select credentials.
 
-Create a credential, key for API. This will generate your API Key. After generating this API key, 
-You have to  search for "Google Places API" and "Google maps API" on the Google Cloud Platform. 
-Active them to allow your API Key to use these APIs. It is important to remember that your 
-selected project must be with billing settings enabled before generating the Key.
+Create a credential, key for API. This will generate your API Key. After 
+generating this API key, you have to  search for "Google Places API" and
+"Google maps API" on the Google Cloud Platform. Active them to allow your
+API Key to use these APIs. It is important to remember that your selected 
+project must be with billing settings enabled before generating the Key.
 
-With your API KEY, go to the "docker-compose.yml" on the root of this project and paste it on the
-line 12:
+Any additional doubt can be checked on Google documentation:
+
+https://developers.google.com/maps/documentation/javascript/places
+
+With your API KEY, go to the "docker-compose.yml" on the root of this 
+project and paste it on the line 12:
 
 environment:
       - REACT_APP_GOOGLE_API_KEY=YOUR_GOOGLE_API_KEY_MUST_BE_HERE
@@ -51,13 +56,15 @@ This command will build the image from Dockerfile of this project.
 ```
 After following the instructions from the READ-ME located on the repository:
 
-https://github.com/rafaelpcustodio/locations-service
+https://github.com/rafaelpcustodio/locations-api
 
-You'll also have the backend API called locations-service which is responsible for data retrieving for this Frontend Application.
+You'll also have the backend API called locations-api which is responsible
+for data retrieving for this Frontend Application.
 
-If you want to test. You can create some locations using the following end-point from locations-service:
+If you want to test. You can create some locations using the following end-point
+from locations-api:
 
-POST http::/localhost:8080/api/v1/locations 
+POST http://localhost:8080/api/v1/locations 
 
 with a request-body like:
 
@@ -74,9 +81,10 @@ https://insomnia.rest/download/
 https://www.postman.com/
 
 
-After creating some location points. You can make a search based on the license plate
-(ex: ABC1234) and the api will show all the positions of your vehicle. 
-(It is important to remember that the license plate format must be in the exact format, otherwise it will not save correctly)
+After creating some location points. You can make a search based on the license
+plate (ex: ABC1234) and the api will show all the positions of your vehicle. 
+(It is important to remember that the license plate format must be in the exact
+format, otherwise it will not save correctly)
 
 ```
 
