@@ -24,9 +24,9 @@ const Dropdown = props => {
             expanded={ expanded }>
             {  
                 <If condition={ expanded } el={ 
-                    <Icon color={ iconColor } icon={"caret-down"}/> 
+                    <Icon color={ iconColor } icon={"caret-down"} size={"lg"} /> 
                     }>
-                    <Icon color={ iconColor } icon={"caret-up"}/>
+                    <Icon color={ iconColor } icon={"caret-up"} size={"lg"} />
                 </If>
             }
         </StyledDropdown>

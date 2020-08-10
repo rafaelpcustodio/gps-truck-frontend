@@ -23,11 +23,11 @@ const isEmpty = o => {
 const getIcon = (types) => {
     if(types.includes('restaurant') && types.includes('lodging')) {
         return hotelAndRestaurantMark
-    } else if(types.includes('restaurant')) {
-        return restaurantMark
     } else if(types.includes('gas_station')) {
         return gasStationMark
-    } 
+    }  else if(types.includes('restaurant')) {
+        return restaurantMark
+    }
     else if(types.includes('lodging') && !types.includes('restaurant')) {
         return hotelMark
     } 
