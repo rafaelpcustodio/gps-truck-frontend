@@ -1,4 +1,4 @@
-IMAGE := ${DOCKER_USERNAME}/locations-api
+IMAGE := ${DOCKER_USERNAME}/gps-frontend
 
 
 build:
