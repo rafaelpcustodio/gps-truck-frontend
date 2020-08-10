@@ -41,31 +41,32 @@ const GoogleMap = props => {
             zoom={16}
             style={mapStyles}
             initialCenter={DEFAULT_CENTER}
+            center={locationsList[locationsList.length - 1]}
             >
                 {
-                    locationsList[0] &&
+                    locationsList[locationsList.length - 1] &&
                     ( 
                         <Marker 
                             icon={truckMarker}
-                            position={locationsList[0]}
+                            position={locationsList[locationsList.length - 1]}
                         />
                     ) 
                 }
                 {
-                    isNotEmpty(minimumDistance) && isNotEmpty(locationsList[0]) && (
+                    isNotEmpty(minimumDistance) && isNotEmpty(locationsList[locationsList.length - 1]) && (
                         <Polyline 
                             geodesic={true}
                             strokeColor={colors.lightGreen}
                             strokeOpacity={1.0}
                             icons={[{icon: arrow, offset: '100%'}]}
                             strokeWeight={2}
-                            path={[locationsList[0].toGoogleMaps, minimumDistance.toGoogleMaps]}
+                            path={[locationsList[locationsList.length - 1].toGoogleMaps, minimumDistance.toGoogleMaps]}
                         /> 
                     )
                 }
                 {
                     locationsList && locationsList.map((location, index) => {
-                        if(index === locationsList.length - 1) {
+                        if(index === 0) {
                             return(<Marker 
                                 icon={firstLocationMarker}
                                 key={index}

@@ -68,7 +68,7 @@ function* setSuggestionsRequested(map) {
         const poyTypeSelected = yield select(getPoiTypeSelectedSelector)
         const radiusSelected = yield select(getRadiusSelectedSelector)
         const locations = yield select(getLocationsListSelector)
-        const mostRecentLocation = locations[0]
+        const mostRecentLocation = locations[locations.length-1]
         const location = new window.google.maps.LatLng(
             mostRecentLocation.lat,
             mostRecentLocation.lng
