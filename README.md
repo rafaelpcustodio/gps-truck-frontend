@@ -121,7 +121,11 @@ format, otherwise it will not save correctly)
 - styled-components
 
 
-5 - Docker hub:
+### Docker hub:
 This application can also be found via [Docker image Gps Frontend](https://hub.docker.com/repository/docker/rafaelpcustodio/gps-frontend)
 
+
+### CI-CD:
+If you want to check the build pipeline, you can access via
+[Gps Frontend Travis](https://travis-ci.org/github/rafaelpcustodio/gps-truck-frontend)
 
