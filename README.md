@@ -37,7 +37,7 @@ Any additional doubt can be checked on Google documentation:
 https://developers.google.com/maps/documentation/javascript/places
 
 With your API KEY, go to the "docker-compose.yml" on the root of this 
-project and paste it on the line 12:
+project and paste it on the line 10:
 
 environment:
       - REACT_APP_GOOGLE_API_KEY=YOUR_GOOGLE_API_KEY_MUST_BE_HERE
