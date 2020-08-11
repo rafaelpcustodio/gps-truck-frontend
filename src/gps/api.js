@@ -56,7 +56,6 @@ const getCandidatesSuggested = ({ service,request }) => {
 const getLocations = licensePlate => {
     if(isNotEmpty(licensePlate)) {
         const nowDateMinusOneHour = moment.utc().subtract(2, 'hours').toISOString()
-        console.log(nowDateMinusOneHour)
         let API_URL = `/api/v1/locations/${licensePlate.toUpperCase()}?dateTime=${nowDateMinusOneHour}`
         return http.get(API_URL)
         .then(({ data, status }) => {

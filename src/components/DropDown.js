@@ -7,6 +7,8 @@ import Icon from './Icon'
 import If from './If'
 import StyledDropdown from './StyledDropdown'
 
+import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
+
 const Dropdown = props => {
 
     const { 
@@ -24,9 +26,9 @@ const Dropdown = props => {
             expanded={ expanded }>
             {  
                 <If condition={ expanded } el={ 
-                    <Icon color={ iconColor } icon={"caret-down"} size={"lg"} /> 
+                    <Icon color={ iconColor } icon={faCaretDown} size={"lg"} /> 
                     }>
-                    <Icon color={ iconColor } icon={"caret-up"} size={"lg"} />
+                    <Icon color={ iconColor } icon={faCaretUp} size={"lg"} />
                 </If>
             }
         </StyledDropdown>

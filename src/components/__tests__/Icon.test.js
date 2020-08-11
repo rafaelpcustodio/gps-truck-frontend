@@ -23,7 +23,7 @@ describe('Tests for Icon component', () => {
                 <Icon
                     className={''}
                     color={''}
-                    icon={''}
+                    icon={{'iconName': 'caret-down', 'prefix': 'fas', 'icon':[320,512]}}
                     size={''}
                 />
             </Provider>
