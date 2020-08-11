@@ -2,9 +2,7 @@ version: '3.3'
 services:
 
   gps-frontend:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: rafaelpcustodio/gps-frontend
     container_name: gps-frontend
     volumes:
       - '/app/node_modules'
