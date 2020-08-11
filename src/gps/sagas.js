@@ -1,6 +1,7 @@
 import { getAction } from '../utils/actions'
 import { actions } from './constants'
 import { all, call, delay, put, select, takeLatest } from 'redux-saga/effects'
+import { times } from '../constants/times'
 
 import {
     getAllPoiTypes, 
@@ -100,7 +101,7 @@ function* setNoLocations() {
 }
 
 function* _sleep() {
-    yield delay(500)
+    yield delay(times.HALF_SECOND)
 }
 
 function* setPoiTypeListRequested({ payload }) {
