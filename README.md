@@ -127,5 +127,5 @@ This application can also be found via [Docker image Gps Frontend](https://hub.d
 
 ### CI-CD:
 If you want to check the build pipeline, you can access via
-[Gps Frontend Travis](https://travis-ci.org/github/rafaelpcustodio/gps-truck-frontend)
+[Gps Frontend Travis](https://travis-ci.com/github/rafaelpcustodio/gps-truck-frontend)
 
