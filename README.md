@@ -10,13 +10,12 @@ Requirements
 * [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
 * [Git](https://git-scm.com/downloads)
 
-1 - Preparing environment
-```
-git clone https://github.com/rafaelpcustodio/gps-truck-frontend.git
-```
+### Preparing environment
 
-2 - Starting application locally
-```
+git clone https://github.com/rafaelpcustodio/gps-truck-frontend.git
+
+### Starting application locally
+
 Before starting it. You must have a Google API key to be able to use Google
 APIs. This project uses Google Places API and Google Maps API. To create your 
 key, you must follow the steps located on this link:
@@ -50,10 +49,10 @@ In the root of the project type the following command on terminal:
 docker-compose up
 
 This command will build the image from Dockerfile of this project. 
-```
 
-3 - Testing locally
-```
+
+### Testing locally
+
 After following the instructions from the READ-ME located on the repository:
 
 https://github.com/rafaelpcustodio/locations-api
@@ -86,11 +85,9 @@ plate (ex: ABC1234) and the api will show all the positions of your vehicle.
 (It is important to remember that the license plate format must be in the exact
 format, otherwise it will not save correctly)
 
-```
 
 
-4 - Used libraries
-```
+### Used libraries
 - FontAwesome
 - Axios
 - Bootstrap
@@ -123,15 +120,8 @@ format, otherwise it will not save correctly)
 - reselect
 - styled-components
 
-```
-
 
 5 - Docker hub:
-```
-This application can also be found on docker hub:
-
-https://hub.docker.com/repository/docker/rafaelpcustodio/gps-frontend
-
-```
+This application can also be found via [Docker image Gps Frontend](https://hub.docker.com/repository/docker/rafaelpcustodio/gps-frontend)
 
 
