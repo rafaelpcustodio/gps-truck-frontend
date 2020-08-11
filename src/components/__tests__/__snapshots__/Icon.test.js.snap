@@ -1,3 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests for Icon component Should render without crash 1`] = `null`;
+exports[`Tests for Icon component Should render without crash 1`] = `
+<svg
+  aria-hidden="true"
+  className="svg-inline--fa fa-caret-down fa-w-10 fa-lg "
+  color=""
+  data-cy="icon"
+  data-icon="caret-down"
+  data-prefix="fas"
+  focusable="false"
+  role="img"
+  style={Object {}}
+  viewBox="0 0 320 512"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    fill="currentColor"
+    style={Object {}}
+  />
+</svg>
+`;
