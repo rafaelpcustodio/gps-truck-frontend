@@ -92,7 +92,7 @@ function* setSuggestionsRequested(map) {
         yield _sleep()
         yield put(setMinimumDistanceAction(minimumDistance))
     } catch (error) {
-        console.log(error.message)
+        yield put(setNoLocationsAction(true))
     }
 }
 
